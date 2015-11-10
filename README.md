@@ -29,6 +29,14 @@ sentry.projects.get('org-slug', 'project-slug').then(function(project) {
 })
 ```
 
+## Tests
+
+To run the tests:
+
+```bash
+make
+```
+
 ## License
 
 ```
