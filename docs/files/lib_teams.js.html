@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>lib/teams.js - Sentry API</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" href="../assets/css/lucid.css">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+</head>
+<body class="yui3-skin-sam">
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <h1 class="brand" style="padding: 10px 16px 10px; height: 20px; line-height: 20px; margin-left: 0;">
+            Sentry API
+        </h1>
+	<div class="nav">
+            <li class="divider-vertical"></li>
+            <li>
+                <p class="navbar-text">
+                    API Docs for Version: <b>0.0.1</b>
+                </p>
+            </li>
+        </div>
+        <form class="navbar-form pull-right" style="line-height: 40px; height: 40px;">
+            <input style="margin-top: 0;" type="text" class="search-query" placeholder="Search for classes/modules..." data-obj='["classes/Client", "classes/DSN", "classes/Events", "classes/Organizations", "classes/Projects", "classes/Releases", "classes/Teams"]'>
+        </form>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="span3">
+	    <div>
+	        <div id="sidebar">
+	        <div id="classes">
+	            <ul id="api-classes" class="nav nav-list">
+	                    <li><a href="../classes/Client.html">Client</a></li>
+	                    <li><a href="../classes/DSN.html">DSN</a></li>
+	                    <li><a href="../classes/Events.html">Events</a></li>
+	                    <li><a href="../classes/Organizations.html">Organizations</a></li>
+	                    <li><a href="../classes/Projects.html">Projects</a></li>
+	                    <li><a href="../classes/Releases.html">Releases</a></li>
+	                    <li><a href="../classes/Teams.html">Teams</a></li>
+	            </ul>
+	        </div>
+	        </div>
+	    </div>
+        </div>
+        <div class="span9">
+                <form id="options-form" class="form-inline pull-right">
+                    Show:
+                    <label for="api-show-inherited" class="checkbox">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected" class="checkbox">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private" class="checkbox">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated" class="checkbox">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </form>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <div class="page-header">
+                            <h1>lib/teams.js <small>File</small></h1>
+                        </div>
+                        
+                        <div class="file">
+                            <pre class="prettyprint linenums">
+                        var util = require(&#x27;util&#x27;);
+                        
+                        /**
+                         * Provides methods for interacting with Teams in the Sentry API.
+                         *
+                         * @class Teams
+                         * @constructor
+                         * @param {Client} client [description]
+                         */
+                        var Teams = function(client) {
+                          this.client = client;
+                        }
+                        
+                        /**
+                         * Retrieve a team.
+                         *
+                         * @method get
+                         * @param  {String}   orgSlug  Organization slug.
+                         * @param  {String}   teamSlug  Team slug.
+                         * @param  {Function} callback
+                         * @return {Promise}
+                         */
+                        Teams.prototype.get = function(orgSlug, teamSlug, callback) {
+                          var path = util.format(&#x27;teams/%s/%s/&#x27;, orgSlug, teamSlug);
+                          return this.client.get(path, callback);
+                        }
+                        
+                        /**
+                         * Create a new team bound to an organization.
+                         *
+                         * @method create
+                         * @param  {String}   orgSlug  Organization slug.
+                         * @param  {Object}   body
+                         * @param  {String}   body.name The human readable name for the new team.
+                         * @param  {String}   body.slug The unique URL slug for this team. If this is not provided a slug is automatically generated based on the name.
+                         * @param  {Function} callback
+                         * @return {Promise}
+                         */
+                        Teams.prototype.create = function(orgSlug, body, callback) {
+                          var path = util.format(&#x27;organizations/%s/teams/&#x27;, orgSlug);
+                          return this.client.post(path, body, callback);
+                        }
+                        
+                        /**
+                         * Delete a team.
+                         *
+                         * @method delete
+                         * @param  {String}   orgSlug  Organization slug.
+                         * @param  {String}   teamSlug  Team slug.
+                         * @param  {Function} callback
+                         * @return {Promise}
+                         */
+                        Teams.prototype.delete = function(orgSlug, teamSlug, callback) {
+                          var path = util.format(&#x27;teams/%s/%s/&#x27;, orgSlug, teamSlug);
+                          return this.client.delete(path, callback);
+                        }
+                        
+                        /**
+                         * Update a team.
+                         *
+                         * @method update
+                         * @param  {String}   orgSlug  Organization slug.
+                         * @param  {String}   teamSlug  Team slug.
+                         * @param  {Object}   body
+                         * @param  {String}   body.name The new name for the team.
+                         * @param  {String}   body.slug A new slug for the team. It has to be unique and available.
+                         * @param  {Function} callback
+                         * @return {Promise}
+                         */
+                        Teams.prototype.update = function(orgSlug, teamSlug, body, callback) {
+                          var path = util.format(&#x27;teams/%s/%s/&#x27;, orgSlug, teamSlug);
+                          return this.client.put(path, callback);
+                        }
+                        
+                        /**
+                         * Retrieve event counts for a team.
+                         *
+                         * @method stats
+                         * @param  {String}   orgSlug  Organization slug.
+                         * @param  {String}   teamSlug  Team slug.
+                         * @param  {Function} callback
+                         * @return {Promise}
+                         */
+                        Teams.prototype.stats = function(orgSlug, teamSlug, callback) {
+                          var path = util.format(&#x27;teams/%s/%s/stats/&#x27;, orgSlug, teamSlug);
+                          return this.client.get(path, callback);
+                        }
+                        
+                        /**
+                         * List an organization&#x27;s teams.
+                         *
+                         * @method list
+                         * @param  {String}   orgSlug  Organization slug.
+                         * @param  {Function} callback
+                         * @return {Promise}
+                         */
+                        Teams.prototype.list = function(orgSlug, callback) {
+                          var path = util.format(&#x27;organizations/%s/teams/&#x27;, orgSlug);
+                          return this.client.get(path, callback);
+                        }
+                        
+                        /**
+                         * List a team&#x27;s projects.
+                         *
+                         * @method projects
+                         * @param  {String}   orgSlug  Organization slug.
+                         * @param  {String}   teamSlug  Team slug.
+                         * @param  {Function} callback
+                         * @return {Promise}
+                         */
+                        Teams.prototype.projects = function(orgSlug, teamSlug, callback) {
+                          var path = util.format(&#x27;teams/%s/%s/projects/&#x27;, orgSlug, teamSlug);
+                          return this.client.get(path, callback);
+                        }
+                        
+                        module.exports = Teams;
+                        
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/jquery/jquery-1.8.2.min.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.js"></script>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script src="../assets/js/yuidoc-bootstrap.js"></script>
+<script>prettyPrint();</script>
+</body>
+</html>

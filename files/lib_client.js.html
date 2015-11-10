@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>lib/client.js - Sentry API</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" href="../assets/css/lucid.css">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+</head>
+<body class="yui3-skin-sam">
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <h1 class="brand" style="padding: 10px 16px 10px; height: 20px; line-height: 20px; margin-left: 0;">
+            Sentry API
+        </h1>
+	<div class="nav">
+            <li class="divider-vertical"></li>
+            <li>
+                <p class="navbar-text">
+                    API Docs for Version: <b>0.0.1</b>
+                </p>
+            </li>
+        </div>
+        <form class="navbar-form pull-right" style="line-height: 40px; height: 40px;">
+            <input style="margin-top: 0;" type="text" class="search-query" placeholder="Search for classes/modules..." data-obj='["classes/Client", "classes/DSN", "classes/Events", "classes/Organizations", "classes/Projects", "classes/Releases", "classes/Teams"]'>
+        </form>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="span3">
+	    <div>
+	        <div id="sidebar">
+	        <div id="classes">
+	            <ul id="api-classes" class="nav nav-list">
+	                    <li><a href="../classes/Client.html">Client</a></li>
+	                    <li><a href="../classes/DSN.html">DSN</a></li>
+	                    <li><a href="../classes/Events.html">Events</a></li>
+	                    <li><a href="../classes/Organizations.html">Organizations</a></li>
+	                    <li><a href="../classes/Projects.html">Projects</a></li>
+	                    <li><a href="../classes/Releases.html">Releases</a></li>
+	                    <li><a href="../classes/Teams.html">Teams</a></li>
+	            </ul>
+	        </div>
+	        </div>
+	    </div>
+        </div>
+        <div class="span9">
+                <form id="options-form" class="form-inline pull-right">
+                    Show:
+                    <label for="api-show-inherited" class="checkbox">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected" class="checkbox">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private" class="checkbox">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated" class="checkbox">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </form>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <div class="page-header">
+                            <h1>lib/client.js <small>File</small></h1>
+                        </div>
+                        
+                        <div class="file">
+                            <pre class="prettyprint linenums">
+                        var fs = require(&#x27;fs&#x27;);
+                        var util = require(&#x27;util&#x27;);
+                        
+                        var winston = require(&#x27;winston&#x27;);
+                        var lodash = require(&#x27;lodash&#x27;);
+                        var request = require(&#x27;request&#x27;);
+                        var Promise = require(&#x27;promise&#x27;);
+                        
+                        var DSN = require(&#x27;./dsn&#x27;).DSN;
+                        var Projects = require(&#x27;./projects&#x27;);
+                        var Organizations = require(&#x27;./organizations&#x27;);
+                        var Releases = require(&#x27;./releases&#x27;);
+                        var Teams = require(&#x27;./teams&#x27;);
+                        var Events = require(&#x27;./events&#x27;);
+                        
+                        /**
+                         * Client for the Sentry API.
+                         *
+                         * @class Client
+                         * @constructor
+                         * @param {String}  dsn    Sentry DSN.
+                         * @param {Options} config Config
+                         * @param {Number}  config.version Sentry API version number.
+                         */
+                        var Client = function(dsn, config) {
+                          this.dsn = new DSN(dsn);
+                        
+                          this.config = lodash.defaults(config || {}, {
+                            version: 0,
+                            logging: true,
+                          });
+                        
+                          this.logger = new(winston.Logger)({
+                            transports: [
+                              new (winston.transports.Console)({
+                                colorize: true,
+                                label: &#x27;SentryAPI&#x27;
+                              })
+                            ]
+                          });
+                        
+                          this.projects = new Projects(this);
+                          this.organizations = new Organizations(this);
+                          this.releases = new Releases(this);
+                          this.teams = new Teams(this);
+                          this.events = new Events(this);
+                        };
+                        
+                        /**
+                         * Contains methods related to Sentry Projects.
+                         *
+                         * @property {Projects} projects
+                         */
+                        Client.prototype.projects = null;
+                        
+                        /**
+                         * Contains methods related to Sentry Organizations.
+                         *
+                         * @property {Organizations} organizations
+                         */
+                        Client.prototype.organizations = null;
+                        
+                        /**
+                         * Contains methods related to Sentry Releases.
+                         *
+                         * @property {Releases} releases
+                         */
+                        Client.prototype.releases = null;
+                        
+                        /**
+                         * Contains methods related to Sentry Teams.
+                         *
+                         * @property {Teams} teams
+                         */
+                        Client.prototype.teams = null;
+                        
+                        /**
+                         * Contains methods related to Sentry Events.
+                         *
+                         * @property {Events} events
+                         */
+                        Client.prototype.events = null;
+                        
+                        /**
+                         * Make a request to the Sentry API.
+                         *
+                         * @method request
+                         * @param  {String}   path     The request path.
+                         * @param  {Object}   options  Request options. These are the same as the request module&#x27;s options.
+                         * @param  {Function} callback Function to execute when the request completes.
+                         * @return {Promise}
+                         */
+                        Client.prototype.request = function(path, options, callback) {
+                          var uri = util.format(&#x27;%s/api/%d/%s&#x27;, this.dsn.uri, this.config.version, path);
+                        
+                          this.logger.info(options.method, uri);
+                        
+                          if (lodash.isUndefined(callback)) {
+                            callback = function() {};
+                          }
+                        
+                          return new Promise(function (resolve, reject) {
+                            request(lodash.extend({
+                              uri: uri,
+                              json: true,
+                              auth: {
+                                user: this.dsn.publicKey,
+                              },
+                            }, options), function(error, response, body) {
+                              if (error) {
+                                this.logger.error(error);
+                                callback(error, null);
+                                reject(error);
+                              }
+                              else if (response.statusCode &gt;= 200 &amp;&amp; response.statusCode &lt; 300) {
+                                this.logger.info(response.statusCode, response.statusMessage);
+                                callback(null, body);
+                                resolve(body);
+                              }
+                              else {
+                                this.logger.warn(response.statusCode, response.statusMessage);
+                                error = new Error(util.format(&#x27;%d: %s&#x27;, response.statusCode, response.statusMessage));
+                                callback(error);
+                                reject(error)
+                              }
+                            }.bind(this));
+                          }.bind(this));
+                        };
+                        
+                        /**
+                         * Convenience method for making GET requests.
+                         *
+                         * @method get
+                         * @param  {String}   path     Request path.
+                         * @param  {Object}   params   Request query string parameters.
+                         * @param  {Function} callback Request callback.
+                         * @return {Promise}
+                         */
+                        Client.prototype.get = function(path, params, callback) {
+                          return this.request(path, {method: &#x27;GET&#x27;, qs: params}, callback);
+                        };
+                        
+                        /**
+                         * Convenience method for making POST requests.
+                         *
+                         * @method post
+                         * @param  {String}   path     Request path.
+                         * @param  {Object}   body     Request body.
+                         * @param  {Function} callback Request callback.
+                         * @return {Promise}
+                         */
+                        Client.prototype.post = function(path, body, callback) {
+                          return this.request(path, {method: &#x27;POST&#x27;, body: body}, callback);
+                        };
+                        
+                        /**
+                         * Convenience method for making DELETE requests.
+                         *
+                         * @method delete
+                         * @param  {String}   path     Request path.
+                         * @param  {Function} callback Request callback.
+                         * @return {Promise}
+                         */
+                        Client.prototype.delete = function(path, callback) {
+                          return this.request(path, {method: &#x27;DELETE&#x27;}, callback);
+                        };
+                        
+                        /**
+                         * Convenience method for making PUT requests.
+                         *
+                         * @method put
+                         * @param  {String}   path     Request path.
+                         * @param  {Object}   body     Request body.
+                         * @param  {Function} callback Request callback.
+                         * @return {Promise}
+                         */
+                        Client.prototype.put = function(path, body, callback) {
+                          return this.request(path, {method: &#x27;PUT&#x27;, body: body}, callback);
+                        };
+                        
+                        exports.Client = Client;
+                        
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/jquery/jquery-1.8.2.min.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.js"></script>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script src="../assets/js/yuidoc-bootstrap.js"></script>
+<script>prettyPrint();</script>
+</body>
+</html>

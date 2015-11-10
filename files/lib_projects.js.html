@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>lib/projects.js - Sentry API</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" href="../assets/css/lucid.css">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+</head>
+<body class="yui3-skin-sam">
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <h1 class="brand" style="padding: 10px 16px 10px; height: 20px; line-height: 20px; margin-left: 0;">
+            Sentry API
+        </h1>
+	<div class="nav">
+            <li class="divider-vertical"></li>
+            <li>
+                <p class="navbar-text">
+                    API Docs for Version: <b>0.0.1</b>
+                </p>
+            </li>
+        </div>
+        <form class="navbar-form pull-right" style="line-height: 40px; height: 40px;">
+            <input style="margin-top: 0;" type="text" class="search-query" placeholder="Search for classes/modules..." data-obj='["classes/Client", "classes/DSN", "classes/Events", "classes/Organizations", "classes/Projects", "classes/Releases", "classes/Teams"]'>
+        </form>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="span3">
+	    <div>
+	        <div id="sidebar">
+	        <div id="classes">
+	            <ul id="api-classes" class="nav nav-list">
+	                    <li><a href="../classes/Client.html">Client</a></li>
+	                    <li><a href="../classes/DSN.html">DSN</a></li>
+	                    <li><a href="../classes/Events.html">Events</a></li>
+	                    <li><a href="../classes/Organizations.html">Organizations</a></li>
+	                    <li><a href="../classes/Projects.html">Projects</a></li>
+	                    <li><a href="../classes/Releases.html">Releases</a></li>
+	                    <li><a href="../classes/Teams.html">Teams</a></li>
+	            </ul>
+	        </div>
+	        </div>
+	    </div>
+        </div>
+        <div class="span9">
+                <form id="options-form" class="form-inline pull-right">
+                    Show:
+                    <label for="api-show-inherited" class="checkbox">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected" class="checkbox">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private" class="checkbox">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated" class="checkbox">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </form>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <div class="page-header">
+                            <h1>lib/projects.js <small>File</small></h1>
+                        </div>
+                        
+                        <div class="file">
+                            <pre class="prettyprint linenums">
+                        var util = require(&#x27;util&#x27;);
+                        
+                        /**
+                         * Provides methods for interacting with Projects in the Sentry API.
+                         *
+                         * @class Projects
+                         * @constructor
+                         * @param {Client} client
+                         */
+                        var Projects = function(client) {
+                          this.client = client;
+                        }
+                        
+                        /**
+                         * Retrieve a project.
+                         *
+                         * @method get
+                         * @param  {String}   orgSlug     Organization slug.
+                         * @param  {String}   projectSlug Project slug.
+                         * @param  {Function} callback
+                         * @return {Promise}
+                         */
+                        Projects.prototype.get = function(orgSlug, projectSlug, callback) {
+                          var path = util.format(&#x27;projects/%s/%s/&#x27;, orgSlug, projectSlug);
+                          return this.client.get(path, callback);
+                        }
+                        
+                        /**
+                         * Delete a project.
+                         *
+                         * @method delete
+                         * @param  {String}   orgSlug     Organization slug.
+                         * @param  {String}   projectSlug Project slug.
+                         * @param  {Function} callback
+                         * @return {Promise}
+                         */
+                        Projects.prototype.delete = function(orgSlug, projectSlug, callback) {
+                          var path = util.format(&#x27;projects/%s/%s/&#x27;, orgSlug, projectSlug);
+                          return this.client.delete(path, callback);
+                        }
+                        
+                        /**
+                         * Update a project.
+                         *
+                         * @method update
+                         * @param  {String}   orgSlug     Organization slug.
+                         * @param  {String}   projectSlug Project slug.
+                         * @param  {Object}   body
+                         * @param  {String}   body.name The new name for the project.
+                         * @param  {String}   body.slug The new slug for the project.
+                         * @param  {Object}   body.options  Optional options to override in the project settings.
+                         * @param  {Function} callback
+                         * @return {Promise}
+                         */
+                        Projects.prototype.update = function(orgSlug, projectSlug, body, callback) {
+                          var path = util.format(&#x27;projects/%s/%s/&#x27;, orgSlug, projectSlug);
+                          return this.client.put(path, body, callback);
+                        }
+                        
+                        /**
+                         * Retrieve event counts for a project.
+                         *
+                         * @method stats
+                         * @param  {String}   orgSlug     Organization slug.
+                         * @param  {String}   projectSlug Project slug.
+                         * @param  {Function} callback
+                         * @return {Promise}
+                         */
+                        Projects.prototype.stats = function(orgSlug, projectSlug, callback) {
+                          var path = util.format(&#x27;projects/%s/%s/stats/&#x27;, orgSlug, projectSlug);
+                          return this.client.get(path, callback);
+                        }
+                        
+                        /**
+                         * List a project&#x27;s client keys.
+                         *
+                         * @method keys
+                         * @param  {String}   orgSlug     Organization slug.
+                         * @param  {String}   projectSlug Project slug.
+                         * @param  {Function} callback
+                         * @return {Promise}
+                         */
+                        Projects.prototype.keys = function(orgSlug, projectSlug, callback) {
+                          var path = util.format(&#x27;projects/%s/%s/keys/&#x27;, orgSlug, projectSlug);
+                          return this.client.get(path, callback);
+                        }
+                        
+                        /**
+                         * Create a new client key.
+                         *
+                         * @method createKey
+                         * @param  {String}   orgSlug     Organization slug.
+                         * @param  {String}   projectSlug Project slug.
+                         * @param  {Object}   body
+                         * @param  {String}   body.name   The name for the new key.
+                         * @param  {Function} callback
+                         * @return {Promise}
+                         */
+                        Projects.prototype.createKey = function(orgSlug, projectSlug, body, callback) {
+                          var path = util.format(&#x27;projects/%s/%s/keys/&#x27;, orgSlug, projectSlug);
+                          return this.client.post(path, body, callback);
+                        }
+                        
+                        /**
+                         * Delete a client key.
+                         *
+                         * @method deleteKey
+                         * @param  {String}   orgSlug     Organization slug.
+                         * @param  {String}   projectSlug Project slug.
+                         * @param  {String}   keyId       The ID of the key to delete.
+                         * @param  {Function} callback
+                         * @return {Promise}
+                         */
+                        Projects.prototype.deleteKey = function(orgSlug, projectSlug, keyId, callback) {
+                          var path = util.format(&#x27;projects/%s/%s/keys/%s/&#x27;, orgSlug, projectSlug, keyId);
+                          return this.client.delete(path, callback);
+                        }
+                        
+                        /**
+                         * Update a client key.
+                         *
+                         * @method updateKey
+                         * @param  {String}   orgSlug     Organization slug.
+                         * @param  {String}   projectSlug Project slug.
+                         * @param  {[type]}   key         [description]
+                         * @param  {Object}   body
+                         * @param  {String}   body.name   The new name for the key.
+                         * @param  {Function} callback
+                         * @return {Promise}
+                         */
+                        Projects.prototype.updateKey = function(orgSlug, projectSlug, key, body, callback) {
+                          var path = util.format(&#x27;projects/%s/%s/keys/%s/&#x27;, orgSlug, projectSlug, key);
+                          return this.client.put(path, body, callback);
+                        }
+                        
+                        /**
+                         * List a project&#x27;s users.
+                         *
+                         * @method users
+                         * @param  {String}   orgSlug     Organization slug.
+                         * @param  {String}   projectSlug Project slug.
+                         * @param  {Function} callback
+                         * @return {Promise}
+                         */
+                        Projects.prototype.users = function(orgSlug, projectSlug, callback) {
+                          var path = util.format(&#x27;projects/%s/%s/users/&#x27;, orgSlug, projectSlug);
+                          return this.client.get(path, callback);
+                        }
+                        
+                        /**
+                         * List a tag&#x27;s values.
+                         *
+                         * @method tag
+                         * @param  {String}   orgSlug     Organization slug.
+                         * @param  {String}   projectSlug Project slug.
+                         * @param  {String}   key         The tag to lookup.
+                         * @param  {Function} callback
+                         * @return {Promise}
+                         */
+                        Projects.prototype.tag = function(orgSlug, projectSlug, key, callback) {
+                          var path = util.format(&#x27;projects/%s/%s/tags/%s/values/&#x27;, orgSlug, projectSlug, key);
+                          return this.client.get(path, callback);
+                        }
+                        
+                        module.exports = Projects;
+                        
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/jquery/jquery-1.8.2.min.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.js"></script>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script src="../assets/js/yuidoc-bootstrap.js"></script>
+<script>prettyPrint();</script>
+</body>
+</html>

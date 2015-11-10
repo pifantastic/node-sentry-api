@@ -1,0 +1,23 @@
+{
+  "name": "sentry-api",
+  "version": "0.0.1",
+  "description": "A client for the Sentry API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sentry"
+  ],
+  "author": "Aaron Forsander",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "promise": "^7.0.4",
+    "request": "^2.65.0",
+    "winston": "^2.1.0"
+  },
+  "devDependencies": {
+    "yuidoc-lucid-theme": "^0.1.1"
+  }
+}

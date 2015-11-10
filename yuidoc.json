@@ -1,0 +1,11 @@
+{
+  "name": "Sentry API",
+  "description": "Client library for interacting with the Sentry API",
+  "url": "https://github.com/pifantastic/node-sentry-api",
+  "options": {
+    "paths": "./lib/**",
+    "outdir": "./docs",
+    "themedir" : "node_modules/yuidoc-lucid-theme",
+    "helpers" : ["node_modules/yuidoc-lucid-theme/helpers/helpers.js"]
+  }
+}
