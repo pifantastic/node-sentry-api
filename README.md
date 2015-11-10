@@ -4,7 +4,7 @@ A node client for the Sentry API.
 
 ## Documentation
 
-[insert link here]
+[http://pifantastic.github.io/node-sentry-api/](http://pifantastic.github.io/node-sentry-api/)
 
 ## Example
 
