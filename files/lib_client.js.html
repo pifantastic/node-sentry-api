@@ -100,6 +100,17 @@
                         /**
                          * Client for the Sentry API.
                          *
+                         * @example
+                         *   var Client = require(&#x27;node-sentry-api&#x27;).Client;
+                         *
+                         *   var sentry = new Client(&#x27;https://abc123:@app.getsentry.com/1234&#x27;, {
+                         *     logging: true
+                         *   });
+                         *
+                         *   sentry.projects.get(&#x27;my-organization-slug&#x27;, &#x27;my-project-slug&#x27;).then(function(error, project) {
+                         *     console.log(project.name);
+                         *   });
+                         *
                          * @class Client
                          * @constructor
                          * @param {String}  dsn    Sentry DSN.
@@ -111,16 +122,16 @@
                         
                           this.config = lodash.defaults(config || {}, {
                             version: 0,
-                            logging: true,
+                            logging: false,
                           });
                         
                           this.logger = new(winston.Logger)({
-                            transports: [
+                            transports: this.config.logging ? [
                               new (winston.transports.Console)({
                                 colorize: true,
                                 label: &#x27;SentryAPI&#x27;
                               })
-                            ]
+                            ] : []
                           });
                         
                           this.projects = new Projects(this);
