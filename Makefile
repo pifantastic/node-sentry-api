@@ -3,4 +3,4 @@
 all: docs
 
 docs:
-	yuidoc ./lib
+	node ./node_modules/yuidocjs/lib/cli.js ./lib
