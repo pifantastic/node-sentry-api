@@ -1,5 +1,7 @@
 # node-sentry-api
 
+![Build Status](https://travis-ci.org/pifantastic/node-sentry-api.svg?branch=master)
+
 A node client for the [Sentry](https://getsentry.com/welcome/) web API.
 
 More information about the Sentry web API can be found [here](https://docs.getsentry.com/hosted/api/).
