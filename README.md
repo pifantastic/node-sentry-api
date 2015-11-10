@@ -1,4 +1,4 @@
-# node-sentry-api
+# sentry-api
 
 ![Build Status](https://travis-ci.org/pifantastic/node-sentry-api.svg?branch=master)
 ![Dependency Status](https://david-dm.org/pifantastic/node-sentry-api.svg)
@@ -7,6 +7,12 @@ A node client for the [Sentry](https://getsentry.com/welcome/) web API.
 
 More information about the Sentry web API can be found [here](https://docs.getsentry.com/hosted/api/).
 
+## Installation
+
+```bash
+npm install sentry-api
+```
+
 ## Documentation
 
 [http://pifantastic.github.io/node-sentry-api/](http://pifantastic.github.io/node-sentry-api/)
@@ -14,7 +20,7 @@ More information about the Sentry web API can be found [here](https://docs.getse
 ## Example
 
 ```javascript
-var Sentry = require('node-sentry-api').Client;
+var Sentry = require('sentry-api').Client;
 
 var sentry = new Sentry('https://abc123:@app.getsentry.com/1234');
 
