@@ -1,6 +1,7 @@
 # node-sentry-api
 
 ![Build Status](https://travis-ci.org/pifantastic/node-sentry-api.svg?branch=master)
+![Dependency Status](https://david-dm.org/pifantastic/node-sentry-api.svg)
 
 A node client for the [Sentry](https://getsentry.com/welcome/) web API.
 
