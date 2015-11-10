@@ -1,0 +1,1531 @@
+{
+    "project": {
+        "name": "Sentry API",
+        "description": "Client library for interacting with the Sentry API",
+        "url": "https://github.com/pifantastic/node-sentry-api",
+        "version": "0.0.1"
+    },
+    "files": {
+        "lib/client.js": {
+            "name": "lib/client.js",
+            "modules": {},
+            "classes": {
+                "Client": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/dsn.js": {
+            "name": "lib/dsn.js",
+            "modules": {},
+            "classes": {
+                "DSN": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/events.js": {
+            "name": "lib/events.js",
+            "modules": {},
+            "classes": {
+                "Events": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/organizations.js": {
+            "name": "lib/organizations.js",
+            "modules": {},
+            "classes": {
+                "Organizations": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/projects.js": {
+            "name": "lib/projects.js",
+            "modules": {},
+            "classes": {
+                "Projects": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/releases.js": {
+            "name": "lib/releases.js",
+            "modules": {},
+            "classes": {
+                "Releases": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/teams.js": {
+            "name": "lib/teams.js",
+            "modules": {},
+            "classes": {
+                "Teams": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "Client": {
+            "name": "Client",
+            "shortname": "Client",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/client.js",
+            "line": 16,
+            "description": "Client for the Sentry API.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "dsn",
+                    "description": "Sentry DSN.",
+                    "type": "String"
+                },
+                {
+                    "name": "config",
+                    "description": "Config",
+                    "type": "Options",
+                    "props": [
+                        {
+                            "name": "version",
+                            "description": "Sentry API version number.",
+                            "type": "Number"
+                        }
+                    ]
+                }
+            ]
+        },
+        "DSN": {
+            "name": "DSN",
+            "shortname": "DSN",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/dsn.js",
+            "line": 4,
+            "description": "Represents a parsed Sentry DSN.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "dsn",
+                    "description": "A Sentry DSN.",
+                    "type": "String"
+                }
+            ]
+        },
+        "Events": {
+            "name": "Events",
+            "shortname": "Events",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/events.js",
+            "line": 3,
+            "description": "Provides methods for interacting with Events in the Sentry API.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "client",
+                    "description": "",
+                    "type": "Client"
+                }
+            ]
+        },
+        "Organizations": {
+            "name": "Organizations",
+            "shortname": "Organizations",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/organizations.js",
+            "line": 3,
+            "description": "Provides methods for interacting with Organizations in the Sentry API.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "client",
+                    "description": "",
+                    "type": "Client"
+                }
+            ]
+        },
+        "Projects": {
+            "name": "Projects",
+            "shortname": "Projects",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/projects.js",
+            "line": 3,
+            "description": "Provides methods for interacting with Projects in the Sentry API.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "client",
+                    "description": "",
+                    "type": "Client"
+                }
+            ]
+        },
+        "Releases": {
+            "name": "Releases",
+            "shortname": "Releases",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/releases.js",
+            "line": 3,
+            "description": "Provides methods for interacting with Releases in the Sentry API.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "client",
+                    "description": "",
+                    "type": "Client"
+                }
+            ]
+        },
+        "Teams": {
+            "name": "Teams",
+            "shortname": "Teams",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/teams.js",
+            "line": 3,
+            "description": "Provides methods for interacting with Teams in the Sentry API.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "client",
+                    "description": "[description]",
+                    "type": "Client"
+                }
+            ]
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "lib/client.js",
+            "line": 49,
+            "description": "Contains methods related to Sentry Projects.",
+            "itemtype": "property",
+            "name": "projects",
+            "type": "Projects",
+            "class": "Client"
+        },
+        {
+            "file": "lib/client.js",
+            "line": 56,
+            "description": "Contains methods related to Sentry Organizations.",
+            "itemtype": "property",
+            "name": "organizations",
+            "type": "Organizations",
+            "class": "Client"
+        },
+        {
+            "file": "lib/client.js",
+            "line": 63,
+            "description": "Contains methods related to Sentry Releases.",
+            "itemtype": "property",
+            "name": "releases",
+            "type": "Releases",
+            "class": "Client"
+        },
+        {
+            "file": "lib/client.js",
+            "line": 70,
+            "description": "Contains methods related to Sentry Teams.",
+            "itemtype": "property",
+            "name": "teams",
+            "type": "Teams",
+            "class": "Client"
+        },
+        {
+            "file": "lib/client.js",
+            "line": 77,
+            "description": "Contains methods related to Sentry Events.",
+            "itemtype": "property",
+            "name": "events",
+            "type": "Events",
+            "class": "Client"
+        },
+        {
+            "file": "lib/client.js",
+            "line": 84,
+            "description": "Make a request to the Sentry API.",
+            "itemtype": "method",
+            "name": "request",
+            "params": [
+                {
+                    "name": "path",
+                    "description": "The request path.",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "Request options. These are the same as the request module's options.",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "Function to execute when the request completes.",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Client"
+        },
+        {
+            "file": "lib/client.js",
+            "line": 130,
+            "description": "Convenience method for making GET requests.",
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "path",
+                    "description": "Request path.",
+                    "type": "String"
+                },
+                {
+                    "name": "params",
+                    "description": "Request query string parameters.",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "Request callback.",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Client"
+        },
+        {
+            "file": "lib/client.js",
+            "line": 143,
+            "description": "Convenience method for making POST requests.",
+            "itemtype": "method",
+            "name": "post",
+            "params": [
+                {
+                    "name": "path",
+                    "description": "Request path.",
+                    "type": "String"
+                },
+                {
+                    "name": "body",
+                    "description": "Request body.",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "Request callback.",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Client"
+        },
+        {
+            "file": "lib/client.js",
+            "line": 156,
+            "description": "Convenience method for making DELETE requests.",
+            "itemtype": "method",
+            "name": "delete",
+            "params": [
+                {
+                    "name": "path",
+                    "description": "Request path.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "Request callback.",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Client"
+        },
+        {
+            "file": "lib/client.js",
+            "line": 168,
+            "description": "Convenience method for making PUT requests.",
+            "itemtype": "method",
+            "name": "put",
+            "params": [
+                {
+                    "name": "path",
+                    "description": "Request path.",
+                    "type": "String"
+                },
+                {
+                    "name": "body",
+                    "description": "Request body.",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "Request callback.",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Client"
+        },
+        {
+            "file": "lib/dsn.js",
+            "line": 24,
+            "description": "Sentry public key.",
+            "itemtype": "property",
+            "name": "publicKey",
+            "type": "String",
+            "class": "DSN"
+        },
+        {
+            "file": "lib/dsn.js",
+            "line": 31,
+            "description": "Sentry secret key.",
+            "itemtype": "property",
+            "name": "secretKey",
+            "type": "String",
+            "class": "DSN"
+        },
+        {
+            "file": "lib/dsn.js",
+            "line": 38,
+            "description": "Sentry API uri.",
+            "itemtype": "property",
+            "name": "uri",
+            "type": "String",
+            "class": "DSN"
+        },
+        {
+            "file": "lib/dsn.js",
+            "line": 45,
+            "description": "Sentry project ID.",
+            "itemtype": "property",
+            "name": "project",
+            "type": "Number",
+            "class": "DSN"
+        },
+        {
+            "file": "lib/organizations.js",
+            "line": 14,
+            "description": "Retrieve an organization.",
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Organizations"
+        },
+        {
+            "file": "lib/organizations.js",
+            "line": 27,
+            "description": "Create a new organization.",
+            "itemtype": "method",
+            "name": "create",
+            "params": [
+                {
+                    "name": "body",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "name",
+                            "description": "The human readable name for the new organization.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "slug",
+                            "description": "The unique URL slug for this organization. If this is not provided a slug is automatically generated based on the name.",
+                            "type": "String"
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Organizations"
+        },
+        {
+            "file": "lib/organizations.js",
+            "line": 41,
+            "description": "Delete an organization.",
+            "itemtype": "method",
+            "name": "delete",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Organizations"
+        },
+        {
+            "file": "lib/organizations.js",
+            "line": 54,
+            "description": "Update an organization.",
+            "itemtype": "method",
+            "name": "update",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "body",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "name",
+                            "description": "An optional new name for the organization.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "slug",
+                            "description": "An optional new slug for the organization. Needs to be available and unique.",
+                            "type": "String"
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Organizations"
+        },
+        {
+            "file": "lib/projects.js",
+            "line": 14,
+            "description": "Retrieve a project.",
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "projectSlug",
+                    "description": "Project slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Projects"
+        },
+        {
+            "file": "lib/projects.js",
+            "line": 28,
+            "description": "Delete a project.",
+            "itemtype": "method",
+            "name": "delete",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "projectSlug",
+                    "description": "Project slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Projects"
+        },
+        {
+            "file": "lib/projects.js",
+            "line": 42,
+            "description": "Update a project.",
+            "itemtype": "method",
+            "name": "update",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "projectSlug",
+                    "description": "Project slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "body",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "name",
+                            "description": "The new name for the project.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "slug",
+                            "description": "The new slug for the project.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "options",
+                            "description": "Optional options to override in the project settings.",
+                            "type": "Object"
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Projects"
+        },
+        {
+            "file": "lib/projects.js",
+            "line": 60,
+            "description": "Retrieve event counts for a project.",
+            "itemtype": "method",
+            "name": "stats",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "projectSlug",
+                    "description": "Project slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Projects"
+        },
+        {
+            "file": "lib/projects.js",
+            "line": 74,
+            "description": "List a project's client keys.",
+            "itemtype": "method",
+            "name": "keys",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "projectSlug",
+                    "description": "Project slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Projects"
+        },
+        {
+            "file": "lib/projects.js",
+            "line": 88,
+            "description": "Create a new client key.",
+            "itemtype": "method",
+            "name": "createKey",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "projectSlug",
+                    "description": "Project slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "body",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "name",
+                            "description": "The name for the new key.",
+                            "type": "String"
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Projects"
+        },
+        {
+            "file": "lib/projects.js",
+            "line": 104,
+            "description": "Delete a client key.",
+            "itemtype": "method",
+            "name": "deleteKey",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "projectSlug",
+                    "description": "Project slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "keyId",
+                    "description": "The ID of the key to delete.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Projects"
+        },
+        {
+            "file": "lib/projects.js",
+            "line": 119,
+            "description": "Update a client key.",
+            "itemtype": "method",
+            "name": "updateKey",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "projectSlug",
+                    "description": "Project slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "key",
+                    "description": "[description]",
+                    "type": "[type]"
+                },
+                {
+                    "name": "body",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "name",
+                            "description": "The new name for the key.",
+                            "type": "String"
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Projects"
+        },
+        {
+            "file": "lib/projects.js",
+            "line": 136,
+            "description": "List a project's users.",
+            "itemtype": "method",
+            "name": "users",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "projectSlug",
+                    "description": "Project slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Projects"
+        },
+        {
+            "file": "lib/projects.js",
+            "line": 150,
+            "description": "List a tag's values.",
+            "itemtype": "method",
+            "name": "tag",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "projectSlug",
+                    "description": "Project slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "key",
+                    "description": "The tag to lookup.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Projects"
+        },
+        {
+            "file": "lib/releases.js",
+            "line": 14,
+            "description": "Retrieve a release.",
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "projectSlug",
+                    "description": "Project slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "version",
+                    "description": "Release version.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Releases"
+        },
+        {
+            "file": "lib/releases.js",
+            "line": 29,
+            "description": "Create a new release.",
+            "itemtype": "method",
+            "name": "create",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "projectSlug",
+                    "description": "Project slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "body",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "version",
+                            "description": "A version identifier for this release. Can be a version number, a commit hash etc.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "ref",
+                            "description": "Aan optional commit reference. This is useful if a tagged version has been provided.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "url",
+                            "description": "A URL that points to the release. This can be the path to an online interface to the sourcecode for instance.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "dateStarted",
+                            "description": "An optional date that indicates when the release process started.",
+                            "type": "Date"
+                        },
+                        {
+                            "name": "dateReleased",
+                            "description": "An optional date that indicates when the release went live. If not provided the current time is assumed.",
+                            "type": "Date"
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Releases"
+        },
+        {
+            "file": "lib/releases.js",
+            "line": 49,
+            "description": "Delete a release.",
+            "itemtype": "method",
+            "name": "delete",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "projectSlug",
+                    "description": "Project slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "version",
+                    "description": "Release version.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Releases"
+        },
+        {
+            "file": "lib/releases.js",
+            "line": 64,
+            "description": "Update a release.",
+            "itemtype": "method",
+            "name": "update",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "projectSlug",
+                    "description": "Project slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "version",
+                    "description": "Release version.",
+                    "type": "String"
+                },
+                {
+                    "name": "body",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "ref",
+                            "description": "Aan optional commit reference. This is useful if a tagged version has been provided.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "url",
+                            "description": "A URL that points to the release. This can be the path to an online interface to the sourcecode for instance.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "dateStarted",
+                            "description": "An optional date that indicates when the release process started.",
+                            "type": "Date"
+                        },
+                        {
+                            "name": "dateReleased",
+                            "description": "An optional date that indicates when the release went live. If not provided the current time is assumed.",
+                            "type": "Date"
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Releases"
+        },
+        {
+            "file": "lib/releases.js",
+            "line": 84,
+            "description": "Retrieve a file.",
+            "itemtype": "method",
+            "name": "getFile",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "projectSlug",
+                    "description": "Project slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "version",
+                    "description": "Release version.",
+                    "type": "String"
+                },
+                {
+                    "name": "fileID",
+                    "description": "File ID.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Releases"
+        },
+        {
+            "file": "lib/releases.js",
+            "line": 100,
+            "description": "Upload a new file.",
+            "itemtype": "method",
+            "name": "createFile",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "projectSlug",
+                    "description": "Project slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "version",
+                    "description": "Release version.",
+                    "type": "String"
+                },
+                {
+                    "name": "formData",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "name",
+                            "description": "The name (full path) of the file.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "file",
+                            "description": "The multipart encoded file.",
+                            "type": "File"
+                        },
+                        {
+                            "name": "header",
+                            "description": "This parameter can be supplied multiple times to attach headers to the file. Each header is a string in the format key:value. For instance it can be used to define a content type.",
+                            "type": "String"
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Releases"
+        },
+        {
+            "file": "lib/releases.js",
+            "line": 122,
+            "description": "Delete a file.",
+            "itemtype": "method",
+            "name": "deleteFile",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "projectSlug",
+                    "description": "Project slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "version",
+                    "description": "Release version.",
+                    "type": "String"
+                },
+                {
+                    "name": "fileId",
+                    "description": "The ID of the file to delete.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Releases"
+        },
+        {
+            "file": "lib/releases.js",
+            "line": 138,
+            "description": "Update a file.",
+            "itemtype": "method",
+            "name": "updateFile",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "projectSlug",
+                    "description": "Project slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "version",
+                    "description": "Release version.",
+                    "type": "String"
+                },
+                {
+                    "name": "fileId",
+                    "description": "The ID of the file to update.",
+                    "type": "String"
+                },
+                {
+                    "name": "body",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "name",
+                            "description": "The new name of the file.",
+                            "type": "String"
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Releases"
+        },
+        {
+            "file": "lib/teams.js",
+            "line": 14,
+            "description": "Retrieve a team.",
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "teamSlug",
+                    "description": "Team slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Teams"
+        },
+        {
+            "file": "lib/teams.js",
+            "line": 28,
+            "description": "Create a new team bound to an organization.",
+            "itemtype": "method",
+            "name": "create",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "body",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "name",
+                            "description": "The human readable name for the new team.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "slug",
+                            "description": "The unique URL slug for this team. If this is not provided a slug is automatically generated based on the name.",
+                            "type": "String"
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Teams"
+        },
+        {
+            "file": "lib/teams.js",
+            "line": 44,
+            "description": "Delete a team.",
+            "itemtype": "method",
+            "name": "delete",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "teamSlug",
+                    "description": "Team slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Teams"
+        },
+        {
+            "file": "lib/teams.js",
+            "line": 58,
+            "description": "Update a team.",
+            "itemtype": "method",
+            "name": "update",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "teamSlug",
+                    "description": "Team slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "body",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "name",
+                            "description": "The new name for the team.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "slug",
+                            "description": "A new slug for the team. It has to be unique and available.",
+                            "type": "String"
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Teams"
+        },
+        {
+            "file": "lib/teams.js",
+            "line": 75,
+            "description": "Retrieve event counts for a team.",
+            "itemtype": "method",
+            "name": "stats",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "teamSlug",
+                    "description": "Team slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Teams"
+        },
+        {
+            "file": "lib/teams.js",
+            "line": 89,
+            "description": "List an organization's teams.",
+            "itemtype": "method",
+            "name": "list",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Teams"
+        },
+        {
+            "file": "lib/teams.js",
+            "line": 102,
+            "description": "List a team's projects.",
+            "itemtype": "method",
+            "name": "projects",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "teamSlug",
+                    "description": "Team slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Teams"
+        }
+    ],
+    "warnings": []
+}

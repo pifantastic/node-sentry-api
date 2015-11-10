@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Client - Sentry API</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" href="../assets/css/lucid.css">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+</head>
+<body class="yui3-skin-sam">
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <h1 class="brand" style="padding: 10px 16px 10px; height: 20px; line-height: 20px; margin-left: 0;">
+            Sentry API
+        </h1>
+	<div class="nav">
+            <li class="divider-vertical"></li>
+            <li>
+                <p class="navbar-text">
+                    API Docs for Version: <b>0.0.1</b>
+                </p>
+            </li>
+        </div>
+        <form class="navbar-form pull-right" style="line-height: 40px; height: 40px;">
+            <input style="margin-top: 0;" type="text" class="search-query" placeholder="Search for classes/modules..." data-obj='["classes/Client", "classes/DSN", "classes/Events", "classes/Organizations", "classes/Projects", "classes/Releases", "classes/Teams"]'>
+        </form>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="span3">
+	    <div>
+	        <div id="sidebar">
+	        <div id="classes">
+	            <ul id="api-classes" class="nav nav-list">
+	                    <li><a href="../classes/Client.html">Client</a></li>
+	                    <li><a href="../classes/DSN.html">DSN</a></li>
+	                    <li><a href="../classes/Events.html">Events</a></li>
+	                    <li><a href="../classes/Organizations.html">Organizations</a></li>
+	                    <li><a href="../classes/Projects.html">Projects</a></li>
+	                    <li><a href="../classes/Releases.html">Releases</a></li>
+	                    <li><a href="../classes/Teams.html">Teams</a></li>
+	            </ul>
+	        </div>
+	        </div>
+	    </div>
+        </div>
+        <div class="span9">
+                <form id="options-form" class="form-inline pull-right">
+                    Show:
+                    <label for="api-show-inherited" class="checkbox">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected" class="checkbox">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private" class="checkbox">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated" class="checkbox">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </form>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <div class="page-header">
+                            <h1>Client</h1>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="yuidoc-class-description">
+                        <p>Client for the Sentry API.</p>
+                        
+                        </div>
+                        
+                        <!-- table of contents -->
+                        
+                        <div id="class-toc" class="page-section">
+                        	<h2>Table of Contents</h2>
+                            <ul>
+                        		<li>
+                        			<strong>Methods</strong>
+                        			<ul>
+                        				<li><a href="#method-delete"><span class="im">delete</span>(<span class="ia">path</span><span class="ia">callback</span>)</a></li>
+                        				<li><a href="#method-get"><span class="im">get</span>(<span class="ia">path</span><span class="ia">params</span><span class="ia">callback</span>)</a></li>
+                        				<li><a href="#method-post"><span class="im">post</span>(<span class="ia">path</span><span class="ia">body</span><span class="ia">callback</span>)</a></li>
+                        				<li><a href="#method-put"><span class="im">put</span>(<span class="ia">path</span><span class="ia">body</span><span class="ia">callback</span>)</a></li>
+                        				<li><a href="#method-request"><span class="im">request</span>(<span class="ia">path</span><span class="ia">options</span><span class="ia">callback</span>)</a></li>
+                        			</ul>
+                        		</li>
+                        
+                        		<li>
+                        			<strong>Properties</strong>
+                        			<ul>
+                        				<li><a href="#prop-events"><span class="ip">events</span></a></li>
+                        				<li><a href="#prop-organizations"><span class="ip">organizations</span></a></li>
+                        				<li><a href="#prop-projects"><span class="ip">projects</span></a></li>
+                        				<li><a href="#prop-releases"><span class="ip">releases</span></a></li>
+                        				<li><a href="#prop-teams"><span class="ip">teams</span></a></li>
+                        			</ul>
+                        		</li>
+                        
+                        
+                        	</ul>
+                        </div>
+                        
+                        <!-- details -->
+                        
+                            <div class="constructor yuidoc-class-constructor page-section">
+                                <h2>Constructor</h2>
+                                <div class="item-list">
+                                <div id="method-Client" class="method item">
+                                	<div class="method-signature">
+                                	<span class="name"><code>Client</code></span>
+                                
+                                		<div class="args">
+                                			<span class="paren">(</span><ul class="args-list inline commas">
+                                				<li class="arg">
+                                						<code>dsn</code>
+                                				</li>
+                                				<li class="arg">
+                                						<code>config</code>
+                                				</li>
+                                			</ul><span class="paren">)</span>
+                                		</div>
+                                	</div>
+                                
+                                
+                                
+                                
+                                
+                                
+                                	<div class="meta">
+                                				<p>
+                                				Defined in
+                                		<a href="../files/lib_client.js.html#l16"><code>lib&#x2F;client.js:16</code></a>
+                                		</p>
+                                
+                                
+                                
+                                	</div>
+                                
+                                
+                                		<div class="params">
+                                			<h4>Parameters:</h4>
+                                
+                                			<ul class="params-list">
+                                				<li class="param">
+                                						<code class="param-name">dsn</code>
+                                						<span class="type">String</span>
+                                
+                                
+                                					<div class="param-description"><p>Sentry DSN.</p>
+                                </div>
+                                
+                                				</li>
+                                				<li class="param">
+                                						<code class="param-name">config</code>
+                                						<span class="type">Options</span>
+                                
+                                
+                                					<div class="param-description"><p>Config</p>
+                                </div>
+                                
+                                						<ul class="params-list">
+                                							<li class="param">
+                                									<code class="param-name">version</code>
+                                									<span class="type">Number</span>
+                                
+                                								<div class="param-description"><p>Sentry API version number.</p>
+                                </div>
+                                
+                                							</li>
+                                						</ul>
+                                				</li>
+                                			</ul>
+                                		</div>
+                                
+                                
+                                </div>
+                                </div>
+                            </div>
+                        
+                            <div id="methods" class="page-section">
+                                <h2 class="off-left">Methods</h2>
+                                <div class="item-list">
+                                    <div id="method-delete" class="method item">
+                                    	<div class="method-signature">
+                                    	<span class="name"><code>delete</code></span>
+                                    
+                                    		<div class="args">
+                                    			<span class="paren">(</span><ul class="args-list inline commas">
+                                    				<li class="arg">
+                                    						<code>path</code>
+                                    				</li>
+                                    				<li class="arg">
+                                    						<code>callback</code>
+                                    				</li>
+                                    			</ul><span class="paren">)</span>
+                                    		</div>
+                                    		<span class="returns-inline">
+                                    			<span class="type">Promise</span>
+                                    		</span>
+                                    	</div>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    	<div class="meta">
+                                    				<p>
+                                    				Defined in
+                                    		<a href="../files/lib_client.js.html#l156"><code>lib&#x2F;client.js:156</code></a>
+                                    		</p>
+                                    
+                                    
+                                    
+                                    	</div>
+                                    
+                                    	<div class="description"><p>Convenience method for making DELETE requests.</p>
+                                    </div>
+                                    
+                                    		<div class="params">
+                                    			<h4>Parameters:</h4>
+                                    
+                                    			<ul class="params-list">
+                                    				<li class="param">
+                                    						<code class="param-name">path</code>
+                                    						<span class="type">String</span>
+                                    
+                                    
+                                    					<div class="param-description"><p>Request path.</p>
+                                    </div>
+                                    
+                                    				</li>
+                                    				<li class="param">
+                                    						<code class="param-name">callback</code>
+                                    						<span class="type">Function</span>
+                                    
+                                    
+                                    					<div class="param-description"><p>Request callback.</p>
+                                    </div>
+                                    
+                                    				</li>
+                                    			</ul>
+                                    		</div>
+                                    
+                                    		<div class="returns">
+                                    			<h4>Returns:</h4>
+                                    
+                                    			<div class="returns-description">
+                                    						<span class="type">Promise</span>
+                                    			</div>
+                                    		</div>
+                                    
+                                    </div>
+                                    <div id="method-get" class="method item">
+                                    	<div class="method-signature">
+                                    	<span class="name"><code>get</code></span>
+                                    
+                                    		<div class="args">
+                                    			<span class="paren">(</span><ul class="args-list inline commas">
+                                    				<li class="arg">
+                                    						<code>path</code>
+                                    				</li>
+                                    				<li class="arg">
+                                    						<code>params</code>
+                                    				</li>
+                                    				<li class="arg">
+                                    						<code>callback</code>
+                                    				</li>
+                                    			</ul><span class="paren">)</span>
+                                    		</div>
+                                    		<span class="returns-inline">
+                                    			<span class="type">Promise</span>
+                                    		</span>
+                                    	</div>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    	<div class="meta">
+                                    				<p>
+                                    				Defined in
+                                    		<a href="../files/lib_client.js.html#l130"><code>lib&#x2F;client.js:130</code></a>
+                                    		</p>
+                                    
+                                    
+                                    
+                                    	</div>
+                                    
+                                    	<div class="description"><p>Convenience method for making GET requests.</p>
+                                    </div>
+                                    
+                                    		<div class="params">
+                                    			<h4>Parameters:</h4>
+                                    
+                                    			<ul class="params-list">
+                                    				<li class="param">
+                                    						<code class="param-name">path</code>
+                                    						<span class="type">String</span>
+                                    
+                                    
+                                    					<div class="param-description"><p>Request path.</p>
+                                    </div>
+                                    
+                                    				</li>
+                                    				<li class="param">
+                                    						<code class="param-name">params</code>
+                                    						<span class="type">Object</span>
+                                    
+                                    
+                                    					<div class="param-description"><p>Request query string parameters.</p>
+                                    </div>
+                                    
+                                    				</li>
+                                    				<li class="param">
+                                    						<code class="param-name">callback</code>
+                                    						<span class="type">Function</span>
+                                    
+                                    
+                                    					<div class="param-description"><p>Request callback.</p>
+                                    </div>
+                                    
+                                    				</li>
+                                    			</ul>
+                                    		</div>
+                                    
+                                    		<div class="returns">
+                                    			<h4>Returns:</h4>
+                                    
+                                    			<div class="returns-description">
+                                    						<span class="type">Promise</span>
+                                    			</div>
+                                    		</div>
+                                    
+                                    </div>
+                                    <div id="method-post" class="method item">
+                                    	<div class="method-signature">
+                                    	<span class="name"><code>post</code></span>
+                                    
+                                    		<div class="args">
+                                    			<span class="paren">(</span><ul class="args-list inline commas">
+                                    				<li class="arg">
+                                    						<code>path</code>
+                                    				</li>
+                                    				<li class="arg">
+                                    						<code>body</code>
+                                    				</li>
+                                    				<li class="arg">
+                                    						<code>callback</code>
+                                    				</li>
+                                    			</ul><span class="paren">)</span>
+                                    		</div>
+                                    		<span class="returns-inline">
+                                    			<span class="type">Promise</span>
+                                    		</span>
+                                    	</div>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    	<div class="meta">
+                                    				<p>
+                                    				Defined in
+                                    		<a href="../files/lib_client.js.html#l143"><code>lib&#x2F;client.js:143</code></a>
+                                    		</p>
+                                    
+                                    
+                                    
+                                    	</div>
+                                    
+                                    	<div class="description"><p>Convenience method for making POST requests.</p>
+                                    </div>
+                                    
+                                    		<div class="params">
+                                    			<h4>Parameters:</h4>
+                                    
+                                    			<ul class="params-list">
+                                    				<li class="param">
+                                    						<code class="param-name">path</code>
+                                    						<span class="type">String</span>
+                                    
+                                    
+                                    					<div class="param-description"><p>Request path.</p>
+                                    </div>
+                                    
+                                    				</li>
+                                    				<li class="param">
+                                    						<code class="param-name">body</code>
+                                    						<span class="type">Object</span>
+                                    
+                                    
+                                    					<div class="param-description"><p>Request body.</p>
+                                    </div>
+                                    
+                                    				</li>
+                                    				<li class="param">
+                                    						<code class="param-name">callback</code>
+                                    						<span class="type">Function</span>
+                                    
+                                    
+                                    					<div class="param-description"><p>Request callback.</p>
+                                    </div>
+                                    
+                                    				</li>
+                                    			</ul>
+                                    		</div>
+                                    
+                                    		<div class="returns">
+                                    			<h4>Returns:</h4>
+                                    
+                                    			<div class="returns-description">
+                                    						<span class="type">Promise</span>
+                                    			</div>
+                                    		</div>
+                                    
+                                    </div>
+                                    <div id="method-put" class="method item">
+                                    	<div class="method-signature">
+                                    	<span class="name"><code>put</code></span>
+                                    
+                                    		<div class="args">
+                                    			<span class="paren">(</span><ul class="args-list inline commas">
+                                    				<li class="arg">
+                                    						<code>path</code>
+                                    				</li>
+                                    				<li class="arg">
+                                    						<code>body</code>
+                                    				</li>
+                                    				<li class="arg">
+                                    						<code>callback</code>
+                                    				</li>
+                                    			</ul><span class="paren">)</span>
+                                    		</div>
+                                    		<span class="returns-inline">
+                                    			<span class="type">Promise</span>
+                                    		</span>
+                                    	</div>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    	<div class="meta">
+                                    				<p>
+                                    				Defined in
+                                    		<a href="../files/lib_client.js.html#l168"><code>lib&#x2F;client.js:168</code></a>
+                                    		</p>
+                                    
+                                    
+                                    
+                                    	</div>
+                                    
+                                    	<div class="description"><p>Convenience method for making PUT requests.</p>
+                                    </div>
+                                    
+                                    		<div class="params">
+                                    			<h4>Parameters:</h4>
+                                    
+                                    			<ul class="params-list">
+                                    				<li class="param">
+                                    						<code class="param-name">path</code>
+                                    						<span class="type">String</span>
+                                    
+                                    
+                                    					<div class="param-description"><p>Request path.</p>
+                                    </div>
+                                    
+                                    				</li>
+                                    				<li class="param">
+                                    						<code class="param-name">body</code>
+                                    						<span class="type">Object</span>
+                                    
+                                    
+                                    					<div class="param-description"><p>Request body.</p>
+                                    </div>
+                                    
+                                    				</li>
+                                    				<li class="param">
+                                    						<code class="param-name">callback</code>
+                                    						<span class="type">Function</span>
+                                    
+                                    
+                                    					<div class="param-description"><p>Request callback.</p>
+                                    </div>
+                                    
+                                    				</li>
+                                    			</ul>
+                                    		</div>
+                                    
+                                    		<div class="returns">
+                                    			<h4>Returns:</h4>
+                                    
+                                    			<div class="returns-description">
+                                    						<span class="type">Promise</span>
+                                    			</div>
+                                    		</div>
+                                    
+                                    </div>
+                                    <div id="method-request" class="method item">
+                                    	<div class="method-signature">
+                                    	<span class="name"><code>request</code></span>
+                                    
+                                    		<div class="args">
+                                    			<span class="paren">(</span><ul class="args-list inline commas">
+                                    				<li class="arg">
+                                    						<code>path</code>
+                                    				</li>
+                                    				<li class="arg">
+                                    						<code>options</code>
+                                    				</li>
+                                    				<li class="arg">
+                                    						<code>callback</code>
+                                    				</li>
+                                    			</ul><span class="paren">)</span>
+                                    		</div>
+                                    		<span class="returns-inline">
+                                    			<span class="type">Promise</span>
+                                    		</span>
+                                    	</div>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    	<div class="meta">
+                                    				<p>
+                                    				Defined in
+                                    		<a href="../files/lib_client.js.html#l84"><code>lib&#x2F;client.js:84</code></a>
+                                    		</p>
+                                    
+                                    
+                                    
+                                    	</div>
+                                    
+                                    	<div class="description"><p>Make a request to the Sentry API.</p>
+                                    </div>
+                                    
+                                    		<div class="params">
+                                    			<h4>Parameters:</h4>
+                                    
+                                    			<ul class="params-list">
+                                    				<li class="param">
+                                    						<code class="param-name">path</code>
+                                    						<span class="type">String</span>
+                                    
+                                    
+                                    					<div class="param-description"><p>The request path.</p>
+                                    </div>
+                                    
+                                    				</li>
+                                    				<li class="param">
+                                    						<code class="param-name">options</code>
+                                    						<span class="type">Object</span>
+                                    
+                                    
+                                    					<div class="param-description"><p>Request options. These are the same as the request module's options.</p>
+                                    </div>
+                                    
+                                    				</li>
+                                    				<li class="param">
+                                    						<code class="param-name">callback</code>
+                                    						<span class="type">Function</span>
+                                    
+                                    
+                                    					<div class="param-description"><p>Function to execute when the request completes.</p>
+                                    </div>
+                                    
+                                    				</li>
+                                    			</ul>
+                                    		</div>
+                                    
+                                    		<div class="returns">
+                                    			<h4>Returns:</h4>
+                                    
+                                    			<div class="returns-description">
+                                    						<span class="type">Promise</span>
+                                    			</div>
+                                    		</div>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div id="properties" class="page-section">
+                                <h2 class="off-left">Properties</h2>
+                        
+                                <div class="item-list">
+                                    <div id="prop-events" class="property item">
+                                        <h3 class="name"><code>events</code></h3>
+                                        <span class="type"><a href="../classes/Events.html" class="crosslink">Events</a></span>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        <div class="meta">
+                                                    <p>
+                                                    Defined in
+                                            <a href="../files/lib_client.js.html#l77"><code>lib&#x2F;client.js:77</code></a>
+                                            </p>
+                                    
+                                    
+                                        </div>
+                                    
+                                        <div class="description">
+                                            <p>Contains methods related to Sentry Events.</p>
+                                    
+                                        </div>
+                                    
+                                    
+                                    
+                                    </div>
+                                    <div id="prop-organizations" class="property item">
+                                        <h3 class="name"><code>organizations</code></h3>
+                                        <span class="type"><a href="../classes/Organizations.html" class="crosslink">Organizations</a></span>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        <div class="meta">
+                                                    <p>
+                                                    Defined in
+                                            <a href="../files/lib_client.js.html#l56"><code>lib&#x2F;client.js:56</code></a>
+                                            </p>
+                                    
+                                    
+                                        </div>
+                                    
+                                        <div class="description">
+                                            <p>Contains methods related to Sentry Organizations.</p>
+                                    
+                                        </div>
+                                    
+                                    
+                                    
+                                    </div>
+                                    <div id="prop-projects" class="property item">
+                                        <h3 class="name"><code>projects</code></h3>
+                                        <span class="type"><a href="../classes/Projects.html" class="crosslink">Projects</a></span>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        <div class="meta">
+                                                    <p>
+                                                    Defined in
+                                            <a href="../files/lib_client.js.html#l49"><code>lib&#x2F;client.js:49</code></a>
+                                            </p>
+                                    
+                                    
+                                        </div>
+                                    
+                                        <div class="description">
+                                            <p>Contains methods related to Sentry Projects.</p>
+                                    
+                                        </div>
+                                    
+                                    
+                                    
+                                    </div>
+                                    <div id="prop-releases" class="property item">
+                                        <h3 class="name"><code>releases</code></h3>
+                                        <span class="type"><a href="../classes/Releases.html" class="crosslink">Releases</a></span>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        <div class="meta">
+                                                    <p>
+                                                    Defined in
+                                            <a href="../files/lib_client.js.html#l63"><code>lib&#x2F;client.js:63</code></a>
+                                            </p>
+                                    
+                                    
+                                        </div>
+                                    
+                                        <div class="description">
+                                            <p>Contains methods related to Sentry Releases.</p>
+                                    
+                                        </div>
+                                    
+                                    
+                                    
+                                    </div>
+                                    <div id="prop-teams" class="property item">
+                                        <h3 class="name"><code>teams</code></h3>
+                                        <span class="type"><a href="../classes/Teams.html" class="crosslink">Teams</a></span>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        <div class="meta">
+                                                    <p>
+                                                    Defined in
+                                            <a href="../files/lib_client.js.html#l70"><code>lib&#x2F;client.js:70</code></a>
+                                            </p>
+                                    
+                                    
+                                        </div>
+                                    
+                                        <div class="description">
+                                            <p>Contains methods related to Sentry Teams.</p>
+                                    
+                                        </div>
+                                    
+                                    
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/jquery/jquery-1.8.2.min.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.js"></script>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script src="../assets/js/yuidoc-bootstrap.js"></script>
+<script>prettyPrint();</script>
+</body>
+</html>
