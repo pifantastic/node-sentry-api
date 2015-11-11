@@ -3,7 +3,7 @@
         "name": "Sentry API",
         "description": "Client library for interacting with the Sentry API",
         "url": "https://github.com/pifantastic/node-sentry-api",
-        "version": "0.0.3"
+        "version": "0.0.5"
     },
     "files": {
         "lib/client.js": {
@@ -563,6 +563,30 @@
                             "type": "String"
                         }
                     ]
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Organizations"
+        },
+        {
+            "file": "lib/organizations.js",
+            "line": 70,
+            "description": "Retrieve an organization's projects.",
+            "itemtype": "method",
+            "name": "projects",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
                 },
                 {
                     "name": "callback",
