@@ -3,7 +3,7 @@
         "name": "Sentry API",
         "description": "Client library for interacting with the Sentry API",
         "url": "https://github.com/pifantastic/node-sentry-api",
-        "version": "0.0.1"
+        "version": "0.0.3"
     },
     "files": {
         "lib/client.js": {
@@ -84,7 +84,7 @@
             "line": 16,
             "description": "Client for the Sentry API.",
             "example": [
-                "\n  var Client = require('node-sentry-api').Client;\n\n  var sentry = new Client('https://abc123:@app.getsentry.com/1234', {\n    logging: true\n  });\n\n  sentry.projects.get('my-organization-slug', 'my-project-slug').then(function(error, project) {\n    console.log(project.name);\n  });"
+                "\n  var Client = require('sentry-api').Client;\n\n  var sentry = new Client('https://abc123:@app.getsentry.com/1234', {\n    logging: true\n  });\n\n  sentry.projects.get('my-organization-slug', 'my-project-slug').then(function(error, project) {\n    console.log(project.name);\n  });"
             ],
             "is_constructor": 1,
             "params": [
@@ -1120,6 +1120,40 @@
         {
             "file": "lib/releases.js",
             "line": 84,
+            "description": "List all files.",
+            "itemtype": "method",
+            "name": "files",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "projectSlug",
+                    "description": "Project slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "version",
+                    "description": "Release version.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Releases"
+        },
+        {
+            "file": "lib/releases.js",
+            "line": 99,
             "description": "Retrieve a file.",
             "itemtype": "method",
             "name": "getFile",
@@ -1158,7 +1192,7 @@
         },
         {
             "file": "lib/releases.js",
-            "line": 100,
+            "line": 115,
             "description": "Upload a new file.",
             "itemtype": "method",
             "name": "createFile",
@@ -1214,7 +1248,7 @@
         },
         {
             "file": "lib/releases.js",
-            "line": 122,
+            "line": 137,
             "description": "Delete a file.",
             "itemtype": "method",
             "name": "deleteFile",
@@ -1253,7 +1287,7 @@
         },
         {
             "file": "lib/releases.js",
-            "line": 138,
+            "line": 153,
             "description": "Update a file.",
             "itemtype": "method",
             "name": "updateFile",

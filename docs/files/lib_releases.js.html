@@ -21,7 +21,7 @@
             <li class="divider-vertical"></li>
             <li>
                 <p class="navbar-text">
-                    API Docs for Version: <b>0.0.1</b>
+                    API Docs for Version: <b>0.0.3</b>
                 </p>
             </li>
         </div>
@@ -140,8 +140,8 @@
                          * @param  {Function} callback
                          * @return {Promise}
                          */
-                        Releases.prototype.delete = function(orgSlug, projectSlug, callback) {
-                          var path = util.format(&#x27;projects/%s/%s/releases/&#x27;, orgSlug, projectSlug);
+                        Releases.prototype.delete = function(orgSlug, projectSlug, version, callback) {
+                          var path = util.format(&#x27;projects/%s/%s/releases/%s/&#x27;, orgSlug, projectSlug, version);
                           return this.client.delete(path, callback);
                         }
                         
@@ -163,6 +163,21 @@
                         Releases.prototype.update = function(orgSlug, projectSlug, version, body, callback) {
                           var path = util.format(&#x27;projects/%s/%s/releases/%s/&#x27;, orgSlug, projectSlug, version);
                           return this.client.put(path, body, callback);
+                        }
+                        
+                        /**
+                         * List all files.
+                         *
+                         * @method files
+                         * @param  {String}   orgSlug     Organization slug.
+                         * @param  {String}   projectSlug Project slug.
+                         * @param  {String}   version     Release version.
+                         * @param  {Function} callback
+                         * @return {Promise}
+                         */
+                        Releases.prototype.files = function(orgSlug, projectSlug, version, callback) {
+                          var path = util.format(&#x27;projects/%s/%s/releases/%s/files/&#x27;, orgSlug, projectSlug, version);
+                          return this.client.get(path, {}, callback);
                         }
                         
                         /**
