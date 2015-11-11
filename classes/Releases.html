@@ -21,7 +21,7 @@
             <li class="divider-vertical"></li>
             <li>
                 <p class="navbar-text">
-                    API Docs for Version: <b>0.0.1</b>
+                    API Docs for Version: <b>0.0.3</b>
                 </p>
             </li>
         </div>
@@ -102,6 +102,7 @@
                         				<li><a href="#method-createFile"><span class="im">createFile</span>(<span class="ia">orgSlug</span><span class="ia">projectSlug</span><span class="ia">version</span><span class="ia">formData</span><span class="ia">callback</span>)</a></li>
                         				<li><a href="#method-delete"><span class="im">delete</span>(<span class="ia">orgSlug</span><span class="ia">projectSlug</span><span class="ia">version</span><span class="ia">callback</span>)</a></li>
                         				<li><a href="#method-deleteFile"><span class="im">deleteFile</span>(<span class="ia">orgSlug</span><span class="ia">projectSlug</span><span class="ia">version</span><span class="ia">fileId</span><span class="ia">callback</span>)</a></li>
+                        				<li><a href="#method-files"><span class="im">files</span>(<span class="ia">orgSlug</span><span class="ia">projectSlug</span><span class="ia">version</span><span class="ia">callback</span>)</a></li>
                         				<li><a href="#method-get"><span class="im">get</span>(<span class="ia">orgSlug</span><span class="ia">projectSlug</span><span class="ia">version</span><span class="ia">callback</span>)</a></li>
                         				<li><a href="#method-getFile"><span class="im">getFile</span>(<span class="ia">orgSlug</span><span class="ia">projectSlug</span><span class="ia">version</span><span class="ia">fileID</span><span class="ia">callback</span>)</a></li>
                         				<li><a href="#method-update"><span class="im">update</span>(<span class="ia">orgSlug</span><span class="ia">projectSlug</span><span class="ia">version</span><span class="ia">body</span><span class="ia">callback</span>)</a></li>
@@ -339,7 +340,7 @@
                                     	<div class="meta">
                                     				<p>
                                     				Defined in
-                                    		<a href="../files/lib_releases.js.html#l100"><code>lib&#x2F;releases.js:100</code></a>
+                                    		<a href="../files/lib_releases.js.html#l115"><code>lib&#x2F;releases.js:115</code></a>
                                     		</p>
                                     
                                     
@@ -561,7 +562,7 @@
                                     	<div class="meta">
                                     				<p>
                                     				Defined in
-                                    		<a href="../files/lib_releases.js.html#l122"><code>lib&#x2F;releases.js:122</code></a>
+                                    		<a href="../files/lib_releases.js.html#l137"><code>lib&#x2F;releases.js:137</code></a>
                                     		</p>
                                     
                                     
@@ -608,6 +609,99 @@
                                     
                                     
                                     					<div class="param-description"><p>The ID of the file to delete.</p>
+                                    </div>
+                                    
+                                    				</li>
+                                    				<li class="param">
+                                    						<code class="param-name">callback</code>
+                                    						<span class="type">Function</span>
+                                    
+                                    
+                                    
+                                    				</li>
+                                    			</ul>
+                                    		</div>
+                                    
+                                    		<div class="returns">
+                                    			<h4>Returns:</h4>
+                                    
+                                    			<div class="returns-description">
+                                    						<span class="type">Promise</span>
+                                    			</div>
+                                    		</div>
+                                    
+                                    </div>
+                                    <div id="method-files" class="method item">
+                                    	<div class="method-signature">
+                                    	<span class="name"><code>files</code></span>
+                                    
+                                    		<div class="args">
+                                    			<span class="paren">(</span><ul class="args-list inline commas">
+                                    				<li class="arg">
+                                    						<code>orgSlug</code>
+                                    				</li>
+                                    				<li class="arg">
+                                    						<code>projectSlug</code>
+                                    				</li>
+                                    				<li class="arg">
+                                    						<code>version</code>
+                                    				</li>
+                                    				<li class="arg">
+                                    						<code>callback</code>
+                                    				</li>
+                                    			</ul><span class="paren">)</span>
+                                    		</div>
+                                    		<span class="returns-inline">
+                                    			<span class="type">Promise</span>
+                                    		</span>
+                                    	</div>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    	<div class="meta">
+                                    				<p>
+                                    				Defined in
+                                    		<a href="../files/lib_releases.js.html#l84"><code>lib&#x2F;releases.js:84</code></a>
+                                    		</p>
+                                    
+                                    
+                                    
+                                    	</div>
+                                    
+                                    	<div class="description"><p>List all files.</p>
+                                    </div>
+                                    
+                                    		<div class="params">
+                                    			<h4>Parameters:</h4>
+                                    
+                                    			<ul class="params-list">
+                                    				<li class="param">
+                                    						<code class="param-name">orgSlug</code>
+                                    						<span class="type">String</span>
+                                    
+                                    
+                                    					<div class="param-description"><p>Organization slug.</p>
+                                    </div>
+                                    
+                                    				</li>
+                                    				<li class="param">
+                                    						<code class="param-name">projectSlug</code>
+                                    						<span class="type">String</span>
+                                    
+                                    
+                                    					<div class="param-description"><p>Project slug.</p>
+                                    </div>
+                                    
+                                    				</li>
+                                    				<li class="param">
+                                    						<code class="param-name">version</code>
+                                    						<span class="type">String</span>
+                                    
+                                    
+                                    					<div class="param-description"><p>Release version.</p>
                                     </div>
                                     
                                     				</li>
@@ -759,7 +853,7 @@
                                     	<div class="meta">
                                     				<p>
                                     				Defined in
-                                    		<a href="../files/lib_releases.js.html#l84"><code>lib&#x2F;releases.js:84</code></a>
+                                    		<a href="../files/lib_releases.js.html#l99"><code>lib&#x2F;releases.js:99</code></a>
                                     		</p>
                                     
                                     
@@ -1004,7 +1098,7 @@
                                     	<div class="meta">
                                     				<p>
                                     				Defined in
-                                    		<a href="../files/lib_releases.js.html#l138"><code>lib&#x2F;releases.js:138</code></a>
+                                    		<a href="../files/lib_releases.js.html#l153"><code>lib&#x2F;releases.js:153</code></a>
                                     		</p>
                                     
                                     
