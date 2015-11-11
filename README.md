@@ -40,7 +40,7 @@ sentry.projects.get('org-slug', 'project-slug').then(function(project) {
 To run the tests:
 
 ```bash
-make
+npm test
 ```
 
 ## License
