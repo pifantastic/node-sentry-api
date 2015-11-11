@@ -1,6 +1,6 @@
 {
   "name": "sentry-api",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A client for the Sentry API",
   "main": "index.js",
   "scripts": {

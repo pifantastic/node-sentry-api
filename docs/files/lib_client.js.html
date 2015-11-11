@@ -214,7 +214,15 @@
                               }
                               else {
                                 this.logger.warn(response.statusCode, response.statusMessage);
-                                error = new Error(util.format(&#x27;%d: %s&#x27;, response.statusCode, response.statusMessage));
+                                if (body &amp;&amp; body.detail) {
+                                  error = new Error(body.detail);
+                                }
+                                else if (response.statusMessage) {
+                                  error = new Error(util.format(&#x27;%d: %s&#x27;, response.statusCode, response.statusMessage));
+                                }
+                                else {
+                                  error = new Error(response.statusCode);
+                                }
                                 callback(error);
                                 reject(error)
                               }

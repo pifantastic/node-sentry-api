@@ -34,6 +34,38 @@ exports.testRequest = function(test) {
   });
 };
 
+exports.testError = function(test) {
+  test.expect(2);
+
+  var request = nock('https://host.com')
+    .get('/api/0/path')
+    .reply(400);
+
+  var client = new Client('https://PUBLIC:SECRET@host.com/123');
+
+  client.request('path', {}, function(error, response) {
+    test.ok(request.isDone(), 'Should make the correct request.');
+    test.equal(error.message, '400', 'Should return the error.');
+    test.done();
+  });
+};
+
+exports.testJsonError = function(test) {
+  test.expect(2);
+
+  var request = nock('https://host.com')
+    .get('/api/0/path')
+    .reply(400, {detail: 'bar'});
+
+  var client = new Client('https://PUBLIC:SECRET@host.com/123');
+
+  client.request('path', {}, function(error, response) {
+    test.ok(request.isDone(), 'Should make the correct request.');
+    test.equal(error.message, 'bar', 'Should parse the error json.');
+    test.done();
+  });
+};
+
 exports.testGet = function(test) {
   test.expect(2);
 
