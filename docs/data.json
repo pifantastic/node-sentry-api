@@ -417,7 +417,7 @@
         },
         {
             "file": "lib/dsn.js",
-            "line": 24,
+            "line": 27,
             "description": "Sentry public key.",
             "itemtype": "property",
             "name": "publicKey",
@@ -426,7 +426,7 @@
         },
         {
             "file": "lib/dsn.js",
-            "line": 31,
+            "line": 34,
             "description": "Sentry secret key.",
             "itemtype": "property",
             "name": "secretKey",
@@ -435,7 +435,7 @@
         },
         {
             "file": "lib/dsn.js",
-            "line": 38,
+            "line": 41,
             "description": "Sentry API uri.",
             "itemtype": "property",
             "name": "uri",
@@ -444,7 +444,7 @@
         },
         {
             "file": "lib/dsn.js",
-            "line": 45,
+            "line": 48,
             "description": "Sentry project ID.",
             "itemtype": "property",
             "name": "project",
@@ -937,6 +937,35 @@
                 {
                     "name": "key",
                     "description": "The tag to lookup.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Projects"
+        },
+        {
+            "file": "lib/projects.js",
+            "line": 165,
+            "description": "List a project's releases.",
+            "itemtype": "method",
+            "name": "users",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "projectSlug",
+                    "description": "Project slug.",
                     "type": "String"
                 },
                 {

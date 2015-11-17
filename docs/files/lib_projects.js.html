@@ -246,6 +246,20 @@
                           return this.client.get(path, callback);
                         }
                         
+                        /**
+                         * List a project&#x27;s releases.
+                         *
+                         * @method users
+                         * @param  {String}   orgSlug     Organization slug.
+                         * @param  {String}   projectSlug Project slug.
+                         * @param  {Function} callback
+                         * @return {Promise}
+                         */
+                        Projects.prototype.users = function(orgSlug, projectSlug, callback) {
+                          var path = util.format(&#x27;projects/%s/%s/releases/&#x27;, orgSlug, projectSlug);
+                          return this.client.get(path, callback);
+                        }
+                        
                         module.exports = Projects;
                         
                             </pre>
