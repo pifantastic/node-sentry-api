@@ -22,14 +22,15 @@ npm install sentry-api
 ```javascript
 var Sentry = require('sentry-api').Client;
 
+// Create a new client using your Sentry DSN.
 var sentry = new Sentry('https://abc123:@app.getsentry.com');
 
-// Callback API
+// Retrieve a project using the callback style.
 sentry.projects.get('org-slug', 'project-slug', function(error, project) {
   console.log(project.name);
 });
 
-// Promise API
+// Retrieve a project using the promise style.
 sentry.projects.get('org-slug', 'project-slug').then(function(project) {
   console.log(project.name);
 })
@@ -51,6 +52,7 @@ const version = '1.0.0';
 sentry.releases.get(organization, project, version).then(function(release) {
   console.log('Release', version, 'already exists!');
 }).catch(function() {
+  // Create a new release.
   sentry.releases.create(organization, project, {
     version: version,
     ref: version,
