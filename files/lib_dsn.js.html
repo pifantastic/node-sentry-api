@@ -21,7 +21,7 @@
             <li class="divider-vertical"></li>
             <li>
                 <p class="navbar-text">
-                    API Docs for Version: <b>0.0.5</b>
+                    API Docs for Version: <b>0.0.7</b>
                 </p>
             </li>
         </div>
@@ -102,7 +102,10 @@
                           }
                         
                           this.uri = util.format(&#x27;%s//%s&#x27;, parsed.protocol, parsed.host);
-                          this.project = parseInt(parsed.pathname.substring(1), 10);
+                        
+                          if (parsed.pathname !== null &amp;&amp; parsed.pathname !== &#x27;/&#x27;) {
+                            this.project = parseInt(parsed.pathname.substring(1), 10);
+                          }
                         };
                         
                         /**
