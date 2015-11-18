@@ -21,7 +21,7 @@
             <li class="divider-vertical"></li>
             <li>
                 <p class="navbar-text">
-                    API Docs for Version: <b>0.0.5</b>
+                    API Docs for Version: <b>0.0.7</b>
                 </p>
             </li>
         </div>
@@ -255,7 +255,7 @@
                          * @param  {Function} callback
                          * @return {Promise}
                          */
-                        Projects.prototype.users = function(orgSlug, projectSlug, callback) {
+                        Projects.prototype.releases = function(orgSlug, projectSlug, callback) {
                           var path = util.format(&#x27;projects/%s/%s/releases/&#x27;, orgSlug, projectSlug);
                           return this.client.get(path, callback);
                         }

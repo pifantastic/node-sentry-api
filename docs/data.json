@@ -3,7 +3,7 @@
         "name": "Sentry API",
         "description": "Client library for interacting with the Sentry API",
         "url": "https://github.com/pifantastic/node-sentry-api",
-        "version": "0.0.5"
+        "version": "0.0.7"
     },
     "files": {
         "lib/client.js": {
