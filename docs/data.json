@@ -956,7 +956,7 @@
             "line": 165,
             "description": "List a project's releases.",
             "itemtype": "method",
-            "name": "users",
+            "name": "releases",
             "params": [
                 {
                     "name": "orgSlug",
