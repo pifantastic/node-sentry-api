@@ -22,7 +22,7 @@ npm install sentry-api
 ```javascript
 var Sentry = require('sentry-api').Client;
 
-var sentry = new Sentry('https://abc123:@app.getsentry.com/1234');
+var sentry = new Sentry('https://abc123:@app.getsentry.com');
 
 // Callback API
 sentry.projects.get('org-slug', 'project-slug', function(error, project) {
@@ -33,6 +33,52 @@ sentry.projects.get('org-slug', 'project-slug', function(error, project) {
 sentry.projects.get('org-slug', 'project-slug').then(function(project) {
   console.log(project.name);
 })
+```
+
+A more complete example:
+
+```javascript
+const fs = require('fs');
+const Promise = require('promise');
+const Sentry = require('sentry-api').Client;
+
+const sentry = new Sentry('https://abc123:@app.getsentry.com');
+const organization = 'acme-org';
+const project = 'top-secret';
+const version = '1.0.0';
+
+// Check that a release hasn't already been created.
+sentry.releases.get(organization, project, version).then(function(release) {
+  console.log('Release', version, 'already exists!');
+}).catch(function() {
+  sentry.releases.create(organization, project, {
+    version: version,
+    ref: version,
+  }).then(function(release) {
+    console.log('Created release:', release);
+
+    var files = ['app.min.js', 'app.min.js.map'];
+
+    // Add files to the release.
+    var uploads = files.map(function(file) {
+      return sentry.releases.createFile(organization, project, version, {
+        name: file,
+        file: fs.createReadStream(file)
+      }).then(function(newFile) {
+        console.log('Created file:', newFile.name);
+      });
+    });
+
+    return Promise.all(uploads);
+  })
+  .then(function() {
+    console.log('Uploaded all files.');
+  })
+  .catch(function(error) {
+    // More than likely the release already exists.
+    console.error('Error creating Sentry release', error);
+  });
+});
 ```
 
 ## Tests
