@@ -1,1 +1,5 @@
 docs
+test
+.travis.yml
+Makefile
+yuidoc.json
