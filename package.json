@@ -1,6 +1,6 @@
 {
   "name": "sentry-api",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "description": "A client for the Sentry API",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "lodash": "^3.10.1",
+    "parse-link-header": "^0.4.1",
     "promise": "^7.0.4",
     "request": "^2.65.0",
     "winston": "^2.1.0"
