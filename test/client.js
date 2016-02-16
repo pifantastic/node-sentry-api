@@ -14,7 +14,7 @@ exports.testConstructor = function(test) {
 };
 
 exports.testRequest = function(test) {
-  test.expect(5);
+  test.expect(7);
 
   var reqheaders = {
     'authorization': 'Basic ' + new Buffer('PUBLIC:').toString('base64'),
@@ -30,10 +30,16 @@ exports.testRequest = function(test) {
   var request2 = nock('https://test.com', {reqheaders: reqheaders})
     .get('/api/0/path/?&cursor=2')
     .reply(200, {bar: 'BAR'}, {
-      'Link': '<https://test.com/api/0/path/?&cursor=1>; rel="previous"; results="true", <https://test.com/api/0/path/?&cursor=3>; rel="next"; results="false"', 
+      'Link': '<https://test.com/api/0/path/?&cursor=1>; rel="previous"; results="true", <https://test.com/api/0/path/?&cursor=3>; rel="next"; results="true"', 
     });
 
   var request3 = nock('https://test.com', {reqheaders: reqheaders})
+    .get('/api/0/path/?&cursor=3')
+    .reply(200, {baz: 'BAZ'}, {
+      'Link': '<https://test.com/api/0/path/?&cursor=2>; rel="previous"; results="true", <https://test.com/api/0/path/?&cursor=4>; rel="next"; results="false"', 
+    });
+
+  var request4 = nock('https://test.com', {reqheaders: reqheaders})
     .get('/api/0/path/?&cursor=3')
     .reply(404);
 
@@ -42,9 +48,11 @@ exports.testRequest = function(test) {
   client.request('path', {}, function(error, response) {
     test.ok(request1.isDone(), 'Should make the correct request.');
     test.ok(request2.isDone(), 'Should request all pages.');
-    test.ok(!request3.isDone(), 'Should not request pages without results.');
+    test.ok(request3.isDone(), 'Should request all pages.');
+    test.ok(!request4.isDone(), 'Should not request pages without results.');
     test.equal(response.foo, 'FOO', 'Should return the response as an object.');
-    test.equal(response.bar, 'BAR', 'Should merge pages.');
+    test.equal(response.bar, 'BAR', 'Should merge second page.');
+    test.equal(response.baz, 'BAZ', 'Should merge third page.');
     test.done();
   });
 };
