@@ -21,7 +21,7 @@
             <li class="divider-vertical"></li>
             <li>
                 <p class="navbar-text">
-                    API Docs for Version: <b>0.0.8</b>
+                    API Docs for Version: <b>0.1.0</b>
                 </p>
             </li>
         </div>
@@ -181,6 +181,24 @@
                         Teams.prototype.list = function(orgSlug, callback) {
                           var path = util.format(&#x27;organizations/%s/teams/&#x27;, orgSlug);
                           return this.client.get(path, callback);
+                        }
+                        
+                        /**
+                         * Create new project
+                         *
+                         * @method createProject
+                         * @param  {String}   orgSlug  Organization slug.
+                         * @param  {String}   teamSlug  Team slug.
+                         * @param  {Object}   body
+                         * @param  {String}   body.name The new name for the project.
+                         * @param  {String}   body.slug (optional) A slug for the new project, will be generated if not given.
+                         * @param  {String}   body.callsign (optional) a callsign for the new project.
+                         * @param  {Function} callback
+                         * @return {Promise}
+                         */
+                        Teams.prototype.createProject = function(orgSlug, teamSlug, body, callback) {
+                          var path = util.format(&#x27;teams/%s/%s/projects/&#x27;, orgSlug, teamSlug);
+                          return this.client.post(path, body, callback);
                         }
                         
                         /**

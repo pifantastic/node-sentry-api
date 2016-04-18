@@ -3,7 +3,7 @@
         "name": "Sentry API",
         "description": "Client library for interacting with the Sentry API",
         "url": "https://github.com/pifantastic/node-sentry-api",
-        "version": "0.0.8"
+        "version": "0.1.0"
     },
     "files": {
         "lib/client.js": {
@@ -1590,6 +1590,57 @@
         {
             "file": "lib/teams.js",
             "line": 102,
+            "description": "Create new project",
+            "itemtype": "method",
+            "name": "createProject",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "teamSlug",
+                    "description": "Team slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "body",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "name",
+                            "description": "The new name for the project.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "slug",
+                            "description": "(optional) A slug for the new project, will be generated if not given.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "callsign",
+                            "description": "(optional) a callsign for the new project.",
+                            "type": "String"
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Teams"
+        },
+        {
+            "file": "lib/teams.js",
+            "line": 120,
             "description": "List a team's projects.",
             "itemtype": "method",
             "name": "projects",
