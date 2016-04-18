@@ -3,7 +3,7 @@
         "name": "Sentry API",
         "description": "Client library for interacting with the Sentry API",
         "url": "https://github.com/pifantastic/node-sentry-api",
-        "version": "0.0.1"
+        "version": "0.1.0"
     },
     "files": {
         "lib/client.js": {
@@ -83,6 +83,9 @@
             "file": "lib/client.js",
             "line": 16,
             "description": "Client for the Sentry API.",
+            "example": [
+                "\n  var Client = require('sentry-api').Client;\n\n  var sentry = new Client('https://abc123:@app.getsentry.com/1234', {\n    logging: true\n  });\n\n  sentry.projects.get('my-organization-slug', 'my-project-slug').then(function(error, project) {\n    console.log(project.name);\n  });"
+            ],
             "is_constructor": 1,
             "params": [
                 {
@@ -229,7 +232,7 @@
     "classitems": [
         {
             "file": "lib/client.js",
-            "line": 49,
+            "line": 60,
             "description": "Contains methods related to Sentry Projects.",
             "itemtype": "property",
             "name": "projects",
@@ -238,7 +241,7 @@
         },
         {
             "file": "lib/client.js",
-            "line": 56,
+            "line": 67,
             "description": "Contains methods related to Sentry Organizations.",
             "itemtype": "property",
             "name": "organizations",
@@ -247,7 +250,7 @@
         },
         {
             "file": "lib/client.js",
-            "line": 63,
+            "line": 74,
             "description": "Contains methods related to Sentry Releases.",
             "itemtype": "property",
             "name": "releases",
@@ -256,7 +259,7 @@
         },
         {
             "file": "lib/client.js",
-            "line": 70,
+            "line": 81,
             "description": "Contains methods related to Sentry Teams.",
             "itemtype": "property",
             "name": "teams",
@@ -265,7 +268,7 @@
         },
         {
             "file": "lib/client.js",
-            "line": 77,
+            "line": 88,
             "description": "Contains methods related to Sentry Events.",
             "itemtype": "property",
             "name": "events",
@@ -274,7 +277,7 @@
         },
         {
             "file": "lib/client.js",
-            "line": 84,
+            "line": 95,
             "description": "Make a request to the Sentry API.",
             "itemtype": "method",
             "name": "request",
@@ -303,7 +306,7 @@
         },
         {
             "file": "lib/client.js",
-            "line": 130,
+            "line": 149,
             "description": "Convenience method for making GET requests.",
             "itemtype": "method",
             "name": "get",
@@ -332,7 +335,7 @@
         },
         {
             "file": "lib/client.js",
-            "line": 143,
+            "line": 162,
             "description": "Convenience method for making POST requests.",
             "itemtype": "method",
             "name": "post",
@@ -361,7 +364,7 @@
         },
         {
             "file": "lib/client.js",
-            "line": 156,
+            "line": 175,
             "description": "Convenience method for making DELETE requests.",
             "itemtype": "method",
             "name": "delete",
@@ -385,7 +388,7 @@
         },
         {
             "file": "lib/client.js",
-            "line": 168,
+            "line": 187,
             "description": "Convenience method for making PUT requests.",
             "itemtype": "method",
             "name": "put",
@@ -414,7 +417,7 @@
         },
         {
             "file": "lib/dsn.js",
-            "line": 24,
+            "line": 27,
             "description": "Sentry public key.",
             "itemtype": "property",
             "name": "publicKey",
@@ -423,7 +426,7 @@
         },
         {
             "file": "lib/dsn.js",
-            "line": 31,
+            "line": 34,
             "description": "Sentry secret key.",
             "itemtype": "property",
             "name": "secretKey",
@@ -432,7 +435,7 @@
         },
         {
             "file": "lib/dsn.js",
-            "line": 38,
+            "line": 41,
             "description": "Sentry API uri.",
             "itemtype": "property",
             "name": "uri",
@@ -441,7 +444,7 @@
         },
         {
             "file": "lib/dsn.js",
-            "line": 45,
+            "line": 48,
             "description": "Sentry project ID.",
             "itemtype": "property",
             "name": "project",
@@ -560,6 +563,30 @@
                             "type": "String"
                         }
                     ]
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Organizations"
+        },
+        {
+            "file": "lib/organizations.js",
+            "line": 70,
+            "description": "Retrieve an organization's projects.",
+            "itemtype": "method",
+            "name": "projects",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
                 },
                 {
                     "name": "callback",
@@ -925,6 +952,35 @@
             "class": "Projects"
         },
         {
+            "file": "lib/projects.js",
+            "line": 165,
+            "description": "List a project's releases.",
+            "itemtype": "method",
+            "name": "releases",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "projectSlug",
+                    "description": "Project slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Projects"
+        },
+        {
             "file": "lib/releases.js",
             "line": 14,
             "description": "Retrieve a release.",
@@ -1117,6 +1173,40 @@
         {
             "file": "lib/releases.js",
             "line": 84,
+            "description": "List all files.",
+            "itemtype": "method",
+            "name": "files",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "projectSlug",
+                    "description": "Project slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "version",
+                    "description": "Release version.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Releases"
+        },
+        {
+            "file": "lib/releases.js",
+            "line": 99,
             "description": "Retrieve a file.",
             "itemtype": "method",
             "name": "getFile",
@@ -1155,7 +1245,7 @@
         },
         {
             "file": "lib/releases.js",
-            "line": 100,
+            "line": 115,
             "description": "Upload a new file.",
             "itemtype": "method",
             "name": "createFile",
@@ -1211,7 +1301,7 @@
         },
         {
             "file": "lib/releases.js",
-            "line": 122,
+            "line": 137,
             "description": "Delete a file.",
             "itemtype": "method",
             "name": "deleteFile",
@@ -1250,7 +1340,7 @@
         },
         {
             "file": "lib/releases.js",
-            "line": 138,
+            "line": 153,
             "description": "Update a file.",
             "itemtype": "method",
             "name": "updateFile",
@@ -1500,6 +1590,57 @@
         {
             "file": "lib/teams.js",
             "line": 102,
+            "description": "Create new project",
+            "itemtype": "method",
+            "name": "createProject",
+            "params": [
+                {
+                    "name": "orgSlug",
+                    "description": "Organization slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "teamSlug",
+                    "description": "Team slug.",
+                    "type": "String"
+                },
+                {
+                    "name": "body",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "name",
+                            "description": "The new name for the project.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "slug",
+                            "description": "(optional) A slug for the new project, will be generated if not given.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "callsign",
+                            "description": "(optional) a callsign for the new project.",
+                            "type": "String"
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Teams"
+        },
+        {
+            "file": "lib/teams.js",
+            "line": 120,
             "description": "List a team's projects.",
             "itemtype": "method",
             "name": "projects",

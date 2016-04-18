@@ -21,7 +21,7 @@
             <li class="divider-vertical"></li>
             <li>
                 <p class="navbar-text">
-                    API Docs for Version: <b>0.0.1</b>
+                    API Docs for Version: <b>0.1.0</b>
                 </p>
             </li>
         </div>
@@ -243,6 +243,20 @@
                          */
                         Projects.prototype.tag = function(orgSlug, projectSlug, key, callback) {
                           var path = util.format(&#x27;projects/%s/%s/tags/%s/values/&#x27;, orgSlug, projectSlug, key);
+                          return this.client.get(path, callback);
+                        }
+                        
+                        /**
+                         * List a project&#x27;s releases.
+                         *
+                         * @method releases
+                         * @param  {String}   orgSlug     Organization slug.
+                         * @param  {String}   projectSlug Project slug.
+                         * @param  {Function} callback
+                         * @return {Promise}
+                         */
+                        Projects.prototype.releases = function(orgSlug, projectSlug, callback) {
+                          var path = util.format(&#x27;projects/%s/%s/releases/&#x27;, orgSlug, projectSlug);
                           return this.client.get(path, callback);
                         }
                         
