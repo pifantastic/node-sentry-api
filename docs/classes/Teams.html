@@ -21,7 +21,7 @@
             <li class="divider-vertical"></li>
             <li>
                 <p class="navbar-text">
-                    API Docs for Version: <b>0.0.8</b>
+                    API Docs for Version: <b>0.1.0</b>
                 </p>
             </li>
         </div>
@@ -99,6 +99,7 @@
                         			<strong>Methods</strong>
                         			<ul>
                         				<li><a href="#method-create"><span class="im">create</span>(<span class="ia">orgSlug</span><span class="ia">body</span><span class="ia">callback</span>)</a></li>
+                        				<li><a href="#method-createProject"><span class="im">createProject</span>(<span class="ia">orgSlug</span><span class="ia">teamSlug</span><span class="ia">body</span><span class="ia">callback</span>)</a></li>
                         				<li><a href="#method-delete"><span class="im">delete</span>(<span class="ia">orgSlug</span><span class="ia">teamSlug</span><span class="ia">callback</span>)</a></li>
                         				<li><a href="#method-get"><span class="im">get</span>(<span class="ia">orgSlug</span><span class="ia">teamSlug</span><span class="ia">callback</span>)</a></li>
                         				<li><a href="#method-list"><span class="im">list</span>(<span class="ia">orgSlug</span><span class="ia">callback</span>)</a></li>
@@ -244,6 +245,123 @@
                                     									<span class="type">String</span>
                                     
                                     								<div class="param-description"><p>The unique URL slug for this team. If this is not provided a slug is automatically generated based on the name.</p>
+                                    </div>
+                                    
+                                    							</li>
+                                    						</ul>
+                                    				</li>
+                                    				<li class="param">
+                                    						<code class="param-name">callback</code>
+                                    						<span class="type">Function</span>
+                                    
+                                    
+                                    
+                                    				</li>
+                                    			</ul>
+                                    		</div>
+                                    
+                                    		<div class="returns">
+                                    			<h4>Returns:</h4>
+                                    
+                                    			<div class="returns-description">
+                                    						<span class="type">Promise</span>
+                                    			</div>
+                                    		</div>
+                                    
+                                    </div>
+                                    <div id="method-createProject" class="method item">
+                                    	<div class="method-signature">
+                                    	<span class="name"><code>createProject</code></span>
+                                    
+                                    		<div class="args">
+                                    			<span class="paren">(</span><ul class="args-list inline commas">
+                                    				<li class="arg">
+                                    						<code>orgSlug</code>
+                                    				</li>
+                                    				<li class="arg">
+                                    						<code>teamSlug</code>
+                                    				</li>
+                                    				<li class="arg">
+                                    						<code>body</code>
+                                    				</li>
+                                    				<li class="arg">
+                                    						<code>callback</code>
+                                    				</li>
+                                    			</ul><span class="paren">)</span>
+                                    		</div>
+                                    		<span class="returns-inline">
+                                    			<span class="type">Promise</span>
+                                    		</span>
+                                    	</div>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    	<div class="meta">
+                                    				<p>
+                                    				Defined in
+                                    		<a href="../files/lib_teams.js.html#l102"><code>lib&#x2F;teams.js:102</code></a>
+                                    		</p>
+                                    
+                                    
+                                    
+                                    	</div>
+                                    
+                                    	<div class="description"><p>Create new project</p>
+                                    </div>
+                                    
+                                    		<div class="params">
+                                    			<h4>Parameters:</h4>
+                                    
+                                    			<ul class="params-list">
+                                    				<li class="param">
+                                    						<code class="param-name">orgSlug</code>
+                                    						<span class="type">String</span>
+                                    
+                                    
+                                    					<div class="param-description"><p>Organization slug.</p>
+                                    </div>
+                                    
+                                    				</li>
+                                    				<li class="param">
+                                    						<code class="param-name">teamSlug</code>
+                                    						<span class="type">String</span>
+                                    
+                                    
+                                    					<div class="param-description"><p>Team slug.</p>
+                                    </div>
+                                    
+                                    				</li>
+                                    				<li class="param">
+                                    						<code class="param-name">body</code>
+                                    						<span class="type">Object</span>
+                                    
+                                    
+                                    
+                                    						<ul class="params-list">
+                                    							<li class="param">
+                                    									<code class="param-name">name</code>
+                                    									<span class="type">String</span>
+                                    
+                                    								<div class="param-description"><p>The new name for the project.</p>
+                                    </div>
+                                    
+                                    							</li>
+                                    							<li class="param">
+                                    									<code class="param-name">slug</code>
+                                    									<span class="type">String</span>
+                                    
+                                    								<div class="param-description"><p>(optional) A slug for the new project, will be generated if not given.</p>
+                                    </div>
+                                    
+                                    							</li>
+                                    							<li class="param">
+                                    									<code class="param-name">callsign</code>
+                                    									<span class="type">String</span>
+                                    
+                                    								<div class="param-description"><p>(optional) a callsign for the new project.</p>
                                     </div>
                                     
                                     							</li>
@@ -529,7 +647,7 @@
                                     	<div class="meta">
                                     				<p>
                                     				Defined in
-                                    		<a href="../files/lib_teams.js.html#l102"><code>lib&#x2F;teams.js:102</code></a>
+                                    		<a href="../files/lib_teams.js.html#l120"><code>lib&#x2F;teams.js:120</code></a>
                                     		</p>
                                     
                                     
