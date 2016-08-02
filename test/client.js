@@ -4,11 +4,17 @@ var nock = require('nock');
 var Client = require('../lib/client').Client;
 
 exports.testConstructor = function(test) {
-  test.expect(2);
+  test.expect(6);
 
   var client = new Client('https://PUBLIC:SECRET@host.com/123');
   test.equal(client.config.version, 0, 'Should default version to 0.');
   test.equal(client.config.logging, false, 'Should default logging to false.');
+
+  client = new Client({token: 'TOKEN'});
+  test.equal(client.config.version, 0, 'Should default version to 0.');
+  test.equal(client.config.logging, false, 'Should default logging to false.');
+  test.equal(client.config.token, 'TOKEN', 'Should set the token.');
+  test.equal(client.dsn.uri, 'https://app.getsentry.com', 'Should use default URI.');
 
   test.done();
 };

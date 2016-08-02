@@ -31,6 +31,12 @@ var sentry = new Sentry('https://abc123:@app.getsentry.com', {
   token: 'mytoken'
 });
 
+// You can also leave off the DSN if you're using token authentication and
+// hosted sentry.
+var sentry = new Sentry({
+  token: 'mytoken'
+});
+
 // Retrieve a project using the callback style.
 sentry.projects.get('org-slug', 'project-slug', function(error, project) {
   console.log(project.name);
