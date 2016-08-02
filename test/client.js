@@ -13,7 +13,7 @@ exports.testConstructor = function(test) {
   test.done();
 };
 
-exports.testRequest = function(test) {
+exports.testBasicAuth = function(test) {
   test.expect(2);
 
   var request = nock('https://host.com', {
@@ -26,6 +26,30 @@ exports.testRequest = function(test) {
     .reply(200, {foo: 'bar'});
 
   var client = new Client('https://PUBLIC:SECRET@host.com/123');
+
+  client.request('path', {}, function(error, response) {
+    test.ok(request.isDone(), 'Should make the correct request.');
+    test.equal(response.foo, 'bar', 'Should return the response as an object.');
+    test.done();
+  });
+};
+
+exports.testBearerAuth = function(test) {
+  test.expect(2);
+  var token = new Buffer('PUBLIC:').toString('base64');
+
+  var request = nock('https://host.com', {
+      reqheaders: {
+        'authorization': 'Bearer ' + token,
+        'accept': 'application/json'
+      }
+    })
+    .get('/api/0/path')
+    .reply(200, {foo: 'bar'});
+
+  var client = new Client('https://PUBLIC:SECRET@host.com/123', {
+    token: token
+  });
 
   client.request('path', {}, function(error, response) {
     test.ok(request.isDone(), 'Should make the correct request.');
